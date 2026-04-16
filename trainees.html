@@ -621,32 +621,22 @@
       document.getElementById("userInput").value = text;
       sendMessage();
     }
-        function toggleChat() {
-      const chat = document.querySelector(".chatbot");
-    
-      if (chat.style.display === "none" || chat.style.display === "") {
-        chat.style.display = "block";
-      } else {
-        chat.style.display = "none";
-      }
-    if (message.includes("hello")) {
-      reply = "Hi! How can I help you today?";
-      }
-   else if (message.includes("contact")) {
-      reply = 'Go to <a href="contactus.html">Contact Page</a>';
-      } 
-   else {
-     reply = "I’m still learning. Try asking about home, contact, or courses.";
-     }
-    chat.innerHTML += `<div class="bot-message" id="typing">Typing...</div>`;
+       function toggleChat() {
+  const chat = document.querySelector(".chatbot");
 
+  if (chat.style.display === "none" || chat.style.display === "") {
+    chat.style.display = "block";
+  } else {
+    chat.style.display = "none";
+  }
+}
 setTimeout(() => {
   document.getElementById("typing").remove();
   chat.innerHTML += `<div class="bot-message">${reply}</div>`;
     }, 1000);
     reply = "Sorry, I didn't understand. Try: home, courses, contactus, jobs, apply, trainees.";
 
-    function clearChat() {
+   function clearChat() {
   document.getElementById("chatBody").innerHTML =
     `<div class="bot-message">Chat cleared. How can I help?</div>`;
 }
@@ -654,34 +644,43 @@ setTimeout(() => {
   reply = "I can help you find pages like Home, Courses, Contact, Jobs.";
 }
 
-    function showPage(pageId) {
-      const pages = document.querySelectorAll('.page-container');
-      pages.forEach(page => {
-        page.classList.remove('active');
-      });
-      document.getElementById(pageId).classList.add('active');
-      const navLinks = document.querySelectorAll('nav ul li a');
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('onclick') === showPage('${pageId}')) {
-          link.classList.add('active');
+        
+        function showPage(pageId) {
+            
+            const pages = document.querySelectorAll('.page-container');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick') === `showPage('${pageId}')`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            
+            window.scrollTo(0, 0);
         }
-      });
-      window.scrollTo(0, 0);
-    }
-
-    document.getElementById('applicationForm')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for your application! We will review your information and get back to you soon.');
-      this.reset();
-    });
-
-    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for your message! We will respond to your inquiry as soon as possible.');
-      this.reset();
-    });
-  </script>
+        
+        
+        document.getElementById('applicationForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We will review your information and get back to you soon.');
+            this.reset();
+        });
+        
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will respond to your inquiry as soon as possible.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
 <!-- Don't forget to split all the pages into different files and link them in the main file. -->
