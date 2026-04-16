@@ -749,9 +749,31 @@ What makes these stories special isn't just what they achieve. It's the journey 
       } else {
         chat.style.display = "none";
       }
-    }
+    if (message.includes("hello")) {
+      reply = "Hi! How can I help you today?";
+      }
+   else if (message.includes("contact")) {
+      reply = 'Go to <a href="contactus.html">Contact Page</a>';
+      } 
+   else {
+     reply = "I’m still learning. Try asking about home, contact, or courses.";
+     }
+    chat.innerHTML += `<div class="bot-message" id="typing">Typing...</div>`;
 
+setTimeout(() => {
+  document.getElementById("typing").remove();
+  chat.innerHTML += `<div class="bot-message">${reply}</div>`;
+    }, 1000);
+    reply = "Sorry, I didn't understand. Try: home, courses, contactus, jobs, apply, trainees.";
 
+    <button onclick="clearChat()">Clear Chat</button>
+    function clearChat() {
+  document.getElementById("chatBody").innerHTML =
+    `<div class="bot-message">Chat cleared. How can I help?</div>`;
+}
+     if (message.includes("help")) {
+  reply = "I can help you find pages like Home, Courses, Contact, Jobs.";
+}
         
         function showPage(pageId) {
             
