@@ -678,7 +678,6 @@ function sendMessage() {
   let message = input.value.toLowerCase();
   let chat = document.getElementById("chatBody");
 
-  // Show user message
   chat.innerHTML += `<div class="user-message">${message}</div>`;
 
   let reply = "Sorry, I didn't understand.";
@@ -686,14 +685,41 @@ function sendMessage() {
   if (message.includes("home")) {
     reply = 'Go to <a href="index.html">Home Page</a>';
   } 
-  else if (message.includes("about")) {
-    reply = 'Visit <a href="about.html">About Us</a>';
+  else if (message.includes("jobs")) {
+    reply = 'Visit <a href="jobs.html">About Us</a>';
   } 
   else if (message.includes("contact")) {
-    reply = 'Here is the <a href="contact.html">Contact Page</a>';
+    reply = 'Here is the <a href="contactus.html">Contact Page</a>';
   }
+  else if (message.includes("trainees")) {
+      reply = "Here is the <a href ="trainees.html">Trainees Page</a>
+  }
+  else if (message.includes("courses")) {
+      reply = "Here is the <a href= "courses.html"> Courses Page </a>
+  }
+  else if (message.includes("apply")) {
+      reply = "Here is the <a href = "application.html"> Application Form Page </a> 
+  else if (message.include("application")) {
+      reply = "Here is the <a href = "application.html"> Application Form Page </a> 
 
-  // Show bot reply
+ <div class="quick-buttons">
+  <button onclick="sendQuick('home')">Home</button>
+  <button onclick="sendQuick('jobs')">Jobs</button>
+  <button onclick="sendQuick('contactus')">ContactUs</button>
+  <button onclick="sendQuick('apply')">Application</button>
+  <button onclick="sendQuick('courses')">Courses</button>
+  <button onclick="sendQuick('trainees')">Trainees</button>
+</div>
+function sendQuick(text) {
+  document.getElementById("userInput").value = text;
+  sendMessage();
+}
+else if (message.includes("help")) {
+  reply = "Try: home, about, contact";
+}
+else if (message.includes("services")) {
+  reply = "We offer web design and development services.";
+}
   chat.innerHTML += `<div class="bot-message">${reply}</div>`;
 
   input.value = "";
