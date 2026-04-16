@@ -660,6 +660,7 @@ What makes these stories special isn't just what they achieve. It's the journey 
   <div class="chat-footer">
     <input type="text" id="userInput" placeholder="Ask something..." />
     <button onclick="sendMessage()">Send</button>
+    <button onclick="clearChat()">Clear Chat</button>
   </div>
 </div>
     
@@ -766,7 +767,6 @@ setTimeout(() => {
     }, 1000);
     reply = "Sorry, I didn't understand. Try: home, courses, contactus, jobs, apply, trainees.";
 
-    <button onclick="clearChat()">Clear Chat</button>
     function clearChat() {
   document.getElementById("chatBody").innerHTML =
     `<div class="bot-message">Chat cleared. How can I help?</div>`;
