@@ -506,6 +506,25 @@
               color: white;
               border: none;
             }
+        .chatbot {
+              display: none; 
+              position: fixed;
+              bottom: 70px;
+              right: 20px;
+            }
+            
+            .chat-toggle {
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              padding: 10px 15px;
+              border-radius: 50%;
+              border: none;
+              background: #333;
+              color: white;
+              font-size: 18px;
+              cursor: pointer;
+            }
         
         
         
@@ -630,6 +649,7 @@ What makes these stories special isn't just what they achieve. It's the journey 
         Your browser does not support the video tag.
     </video>
 </section>
+ <button class="chat-toggle" onclick="toggleChat()">💬</button>
 <div class="chatbot">
   <div class="chat-header">Site Assistant</div>
 
@@ -669,6 +689,7 @@ What makes these stories special isn't just what they achieve. It's the journey 
             <div class="copyright">
                 <p>&copy; 2025 Hot Beans. All Rights Reserved.</p>
             </div>
+            
        
     </footer>
 
@@ -719,6 +740,15 @@ What makes these stories special isn't just what they achieve. It's the journey 
     function sendQuick(text) {
       document.getElementById("userInput").value = text;
       sendMessage();
+    }
+        function toggleChat() {
+      const chat = document.querySelector(".chatbot");
+    
+      if (chat.style.display === "none" || chat.style.display === "") {
+        chat.style.display = "block";
+      } else {
+        chat.style.display = "none";
+      }
     }
 
 
