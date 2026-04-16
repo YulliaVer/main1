@@ -630,7 +630,18 @@ What makes these stories special isn't just what they achieve. It's the journey 
         Your browser does not support the video tag.
     </video>
 </section>
+<div class="chatbot">
+  <div class="chat-header">Site Assistant</div>
 
+  <div class="chat-body" id="chatBody">
+    <div class="bot-message">Hello! Ask me where to go.</div>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
     
     <footer>
         <div class="container">
@@ -662,6 +673,33 @@ What makes these stories special isn't just what they achieve. It's the journey 
     </footer>
 
     <script>
+function sendMessage() {
+  let input = document.getElementById("userInput");
+  let message = input.value.toLowerCase();
+  let chat = document.getElementById("chatBody");
+
+  // Show user message
+  chat.innerHTML += `<div class="user-message">${message}</div>`;
+
+  let reply = "Sorry, I didn't understand.";
+
+  if (message.includes("home")) {
+    reply = 'Go to <a href="index.html">Home Page</a>';
+  } 
+  else if (message.includes("about")) {
+    reply = 'Visit <a href="about.html">About Us</a>';
+  } 
+  else if (message.includes("contact")) {
+    reply = 'Here is the <a href="contact.html">Contact Page</a>';
+  }
+
+  // Show bot reply
+  chat.innerHTML += `<div class="bot-message">${reply}</div>`;
+
+  input.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
+
         
         function showPage(pageId) {
             
