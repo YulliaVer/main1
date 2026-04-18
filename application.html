@@ -1,874 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hot Beans - Web Development Experts</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-       
-        :root {
-            --primary: #ac55c2;
-            --secondary: #C6426E;
-            --dark: #292929;
-            --light: #f5f5f5;
-            --accent: #050505;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        
-        .page-container {
-            display: none;
-        }
-        
-        .page-container.active {
-            display: block;
-        }
-        
-        
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: 1200;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 20px 0;
-            text-align: center;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #ffae00d3;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            position: relative;
-        }
-        
-        nav ul li a {
-            display: block;
-            padding: 15px 25px;
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            background-color: var(--primary);
-        }
-        
-        nav ul li a.active {
-            background-color: var(--primary);
-        }
-        
-        
-        .ad {
-            min-height: 400px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-        }
-        .ad-content .btn {
-         margin-top: 60px;
-        }
-        
-        .ad-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hot Beans - Apply</title>
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: rgba(255, 221, 0, 0.9);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-       
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--secondary);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-  
-        
-        
-.home-ad {
-    background-image: url('Banner1.png');
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+:root {
+    --primary: #ac55c2;
+    --secondary: #C6426E;
+    --dark: #292929;
+    --light: #f5f5f5;
 }
 
-.home-ad2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
-        
-               
-        .skill-tag {
-            display: inline-block;
-            background-color: var(--light);
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-        
-       
-        .projects-ad {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-        }
-        
-        
-        .jobs-ad {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-        }
-        
-             
-        
-        .courses-ad {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-        }
-        
-              
-        
-        .application-ad {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-        }
-        
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--secondary);
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .requirements {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-        
-        .requirements h3 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        .requirements ul {
-            list-style-position: inside;
-        }
-        
-        .requirements li {
-            margin-bottom: 10px;
-        }
-        
-        
-        .contact-ad {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-        }
-        
-        .contact-card {
-            text-align: center;
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .contact-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .contact-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        .contact-card a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-card a:hover {
-            color: var(--accent);
-        }
-        
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: #ffcc00;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        .chatbot {
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              width: 280px;
-              background: white;
-              border-radius: 8px;
-              box-shadow: 0 0 10px rgba(0,0,0,0.2);
-              font-family: sans-serif;
-            }
-            
-        .chat-header {
-              background: #333;
-              color: white;
-              padding: 10px;
-            }
-            
-        .chat-body {
-              height: 200px;
-              overflow-y: auto;
-              padding: 10px;
-            }
-            
-        .bot-message {
-              background: #eee;
-              padding: 6px;
-              margin: 5px 0;
-              border-radius: 5px;
-            }
-            
-        .user-message {
-              background: #333;
-              color: white;
-              padding: 6px;
-              margin: 5px 0;
-              border-radius: 5px;
-              text-align: right;
-            }
-            
-        .chat-footer {
-              display: flex;
-            }
-            
-        .chat-footer input {
-              flex: 1;
-              padding: 5px;
-              border: none;
-            }
-            
-        .chat-footer button {
-              padding: 5px;
-              background: #333;
-              color: white;
-              border: none;
-            }
-        .chatbot {
-              display: none; 
-              position: fixed;
-              bottom: 70px;
-              right: 20px;
-            }
-            
-            .chat-toggle {
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              padding: 10px 15px;
-              border-radius: 50%;
-              border: none;
-              background: #333;
-              color: white;
-              font-size: 18px;
-              cursor: pointer;
-            }
 
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .ad-content h1 {
-                font-size: 3rem;
-                margin-bottom: 20px;
-            }
-            
-            .section {
-                padding: 50px 0;
-            }
-            
-            .trainee-profile,
-            .trainee-profile:nth-child(even) {
-                flex-direction: column;
-            }
-            
-            .trainee-img {
-                margin-bottom: 20px;
-            }
-            
-            .job-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
-            iframe {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            }
-        }
-    </style>
+body {
+    background: var(--light);
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #ffae00d3;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav a {
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    background: var(--primary);
+}
+
+
+.ad {
+    height: 300px;
+    background: url('Banner1.png') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+}
+
+.form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+
+.chatbot {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.chat-header {
+    background: #333;
+    color: white;
+    padding: 10px;
+}
+
+.chat-body {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.bot-message {
+    background: #eee;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.user-message {
+    background: #333;
+    color: white;
+    padding: 5px;
+    margin: 5px 0;
+    text-align: right;
+}
+
+.chat-footer {
+    display: flex;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 5px;
+}
+
+.chat-footer button {
+    padding: 5px;
+    background: #333;
+    color: white;
+    border: none;
+}
+
+.chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+footer {
+    background: #292929;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
 </head>
+
 <body>
-    <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="trainees.html">Trainees</a></li>
-                    <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="application.html">Application</a></li>
-                    <li><a href="contactus.html">Contact Us</a></li>
-                </ul>
-                </ul>
-            </nav>
-    </header>
-        <section class="ad home-ad">
- 
-            <div class="ad-content">
-                <h1>Apply to Hot Beans</h1>
-                <p>Join Hot Beans and kickstart your career in web development with our expert-led courses and  training programs.</p>
-                <a href="#" onclick="showPage('application')" class="btn">Apply Now</a>
-            </div>
-        </section>
 
 
-    <form action="https://formspree.io/f/xnjgekqq" method="POST">
-        
-        <div class="container">
-            <div class="application-ad ad">
-                <div class="ad-content">
-                    <h1>Apply to Hot Beans</h1>
-                    <p>Fill out the application form below to join our web development training program and start your journey towards becoming a skilled web developer.</p>
-                </div>
-            </div>
-            <div class="form-container">
-                <form id="applicationForm">
-                    <div class="form-group">
-                        <label for="name">First Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="surname">Last Name</label>
-                        <input type="text" id="surname" name="surname" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="jobs">Position Applied For</label>
-                        <select id="jobs" name="jobs" required>
-                            <option value="">Select a position</option>
-                            <option value="frontend">Frontend Developer</option>
-                            <option value="backend">Backend Developer</option>
-                            <option value="fullstack">Full Stack Developer</option>
-                            <option value="uiux">UI/UX Designer</option>
-                        </select>
-                    </div> 
-                    <div class="form-group">
-                        <label for="experience">Previous Experience</label>
-                        <textarea id="experience" name="experience" placeholder="Describe your previous experience in web development..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="skills">Key Skills</label>
-                        <textarea id="skills" name="skills" placeholder="List your key skills relevant to web development..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="portfolio">Portfolio Link</label>
-                        <input type="url" id="portfolio" name="portfolio" placeholder="Provide a link to your portfolio or GitHub..." required>
-                    </div>
-                    <div class = "form-group">
-                        <label for ="years">Years of Experience</label>
-                        <input type="number" id="years" name="years" min="0" max="50" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn">Submit Application</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </form>
-    </section>
-</body> 
-     <button class="chat-toggle" onclick="toggleChat()">💬</button>
-<div class="chatbot">
-  <div class="chat-header">Site Assistant</div>
-
-  <div class="chat-body" id="chatBody">
-    <div class="bot-message">Hello! Ask me where to go.</div>
-  </div>
-
-  <div class="chat-footer">
-    <input type="text" id="userInput" placeholder="Ask something..." />
-    <button onclick="sendMessage()">Send</button>
-    <button onclick="clearChat()">Clear Chat</button>
-  </div>
-</div>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="trainees.html">Trainees</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="application.html">Application</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+    </ul>
+</nav>
 
 
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Hot Beans</h3>
-                    <p>Empowering the next generation of web developers through innovative training and real-world experience.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-             
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Ealing Green , London, UK</li>
-                        <li><i class="fas fa-phone"></i> +44 123 456 7890</li>
-                        <li><i class="fas fa-envelope"></i> xxxxxxx@college.wlc.ac.uk</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Hot Beans. All Rights Reserved.</p>
-            </div>
-    </footer>
-
-</head>
-<body>
-    <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="trainees.html">Trainees</a></li>
-                    <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="application.html">Application</a></li>
-                    <li><a href="contactus.html">Contact Us</a></li>
-                </ul>
-                </ul>
-            </nav>
-    </header>
-    
-
-        <section class="ad home-ad">
- 
-            <div class="ad-content">
-                <h1>Our Jobs Available</h1>
-                <p>Join Hot Beans and kickstart your career in web development with our expert-led courses and  training programs.</p>
-                <a href="#" onclick="showPage('application')" class="btn">Apply Now</a>
-            </div>
-        </section>
-
-<section class="section">
-<div class="container">
-
-<div class="section-title">
-    <div class="container">
-<h2>Jobs Available</h2>
-</div>
-
-<div class="grid">
-
-<div class="course-card">
-    <img src="backend.jpg" alt="Backend Developer Course">
-    <div class="course-content">
-     <h3>Backend Developer</h3>
-     <p>A Back-End Developer creates and maintains the server-side logic, databases, and APIs that power web applications, ensuring efficient data processing, security, and seamless integration with front-end components. </p>
-    <div class="requirements">
-        <h3>Requirements:</h3>
-            <ul>
-                <li>3+ years of experience in back-end development</li>
-                <li>Proficiency in Node.js, Python, Ruby, or Java</li>
-                <li>Experience with databases like MySQL, MongoDB, or PostgreSQL</li>
-                <li>Strong understanding of RESTful API design and security best practices</li>
-            </ul>
-    </div>
-    <a href="application.html" target="_blank" class="btn">Apply Now</a>
- </div>
-</div>
-
-<div class="course-card">
-    <img src="ecommerce.jpg" alt="E-commerce Specialist Course">
-     <div class="course-content">
-    <h3>E-commerce Specialist</h3>
-    <p>We are looking for a detail-oriented E-commerce Specialist to manage our online store and drive sales growth. The ideal candidate will have experience in digital marketing, product management, and customer service. </p>
-    <div class="requirements">
-        <h3>Requirements:</h3>
-            <ul>
-                <li>2+ years of experience in e-commerce management</li>
-                <li>Proficiency in platforms like Shopify, WooCommerce, or Magento</li>
-                <li>Experience with digital marketing strategies and tools</li>
-                <li>Strong analytical skills and ability to optimize product listings for SEO</li>
-            </ul>
-     </div>
-    <a href="application.html" target="_blank" class="btn">Apply Now</a>
- </div>
-</div>
-
-<div class="course-card">
-    <img src="frontedDeveloper.jpg" alt="Frontend Developer Course">
-    <div class="course-content">
-    <h3>Frontend Developer</h3>
-    <p>A Front-End Developer builds the user-facing, interactive components of websites and applications using HTML, CSS, and JavaScript, ensuring seamless, responsive, and accessible user experiences across devices. </p>
-    <div class="requirements">
-        <h3>Requirements:</h3>
-            <ul>
-                <li>3+ years of experience in front-end development</li>
-                <li>Proficiency in HTML, CSS, and JavaScript</li>
-                <li>Experience with React, Angular, or Vue.js</li>
-                <li>Strong understanding of responsive design and cross-browser compatibility</li>
-            </ul>
-        </div>
-        <a href="application.html" target="_blank" class="btn">Apply Now</a>
-    </div>
-</div>
-
-</div>
+<section class="ad">
+    <h1>Apply to Hot Beans</h1>
 </section>
-    <button class="chat-toggle" onclick="toggleChat()">💬</button>
-<div class="chatbot">
-  <div class="chat-header">Site Assistant</div>
 
-  <div class="chat-body" id="chatBody">
-    <div class="bot-message">Hello! Ask me where to go.</div>
-  </div>
 
-  <div class="chat-footer">
-    <input type="text" id="userInput" placeholder="Ask something..." />
-    <button onclick="sendMessage()">Send</button>
-    <button onclick="clearChat()">Clear Chat</button>
-  </div>
+<div class="container">
+    <div class="form-container">
+        <form action="https://formspree.io/f/xnjgekqq" method="POST">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+<div class="form-group">
+    <label>Last Name</label>
+        <input type="text" name="surname" required>
+    </div>
+
+<div class="form-group">
+    <label>Email</label>
+    <input type="email" name="email" required>
+</div>
+
+<div class="form-group">
+    <label>Phone</label>
+    <input type="tel" name="phone" required>
+</div>
+
+<div class="form-group">
+    <label>Position</label>
+        <select name="job" required>
+            <option value="">Select</option>
+            <option>Frontend</option>
+            <option>Backend</option>
+            <option>Full Stack</option>
+            <option>UI/UX</option>
+        </select>
+</div>
+
+<div class="form-group">
+    <label>Experience</label>
+    <textarea name="experience"></textarea>
+</div>
+
+<div class="form-group">
+    <label>Skills</label>
+    <textarea name="skills"></textarea>
+</div>
+
+<div class="form-group">
+    <label>Portfolio</label>
+    <input type="url" name="portfolio">
+</div>
+
+<div class="form-group">
+    <label>Years</label>
+    <input type="number" name="years">
+</div>
+
+<button class="btn">Submit</button>
+
+</form>
+
+</div>
 </div>
 
 
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Hot Beans</h3>
-                    <p>Empowering the next generation of web developers through innovative training and real-world experience.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-             
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Ealing Green , London, UK</li>
-                        <li><i class="fas fa-phone"></i> +44 123 456 7890</li>
-                        <li><i class="fas fa-envelope"></i> xxxxxxx@college.wlc.ac.uk</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Hot Beans. All Rights Reserved.</p>
-            </div>
-       
-    </footer>
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
 
-   <script>
-function sendMessage() {
-  let input = document.getElementById("userInput");
-  let message = input.value.toLowerCase();
-  let chat = document.getElementById("chatBody");
+<div class="chatbot">
+<div class="chat-header">Assistant</div>
+<div class="chat-body" id="chatBody">
+<div class="bot-message">Ask me something!</div>
+</div>
 
-  chat.innerHTML += `<div class="user-message">${message}</div>`;
-
-  let reply = "Sorry, I didn't understand.";
-
-  if (message.includes("home")) {
-    reply = 'Go to <a href="index.html">Home Page</a>';
-  } 
-  else if (message.includes("jobs")) {
-    reply = 'Visit <a href="jobs.html">Jobs Page</a>';
-  } 
-  else if (message.includes("contact")) {
-    reply = 'Here is the <a href="contactus.html">Contact Page</a>';
-  } 
-  else if (message.includes("trainees")) {
-    reply = 'Here is the <a href="trainees.html">Trainees Page</a>';
-  } 
-  else if (message.includes("courses")) {
-    reply = 'Here is the <a href="courses.html">Courses Page</a>';
-  } 
-  else if (message.includes("apply") || message.includes("application")) {
-    reply = 'Here is the <a href="application.html">Application Page</a>';
-  } 
-  else if (message.includes("help")) {
-    reply = "Try: home, jobs, contact, courses, apply";
-  } 
-  else if (message.includes("services")) {
-    reply = "We offer web design and development services.";
-  }
-
-  chat.innerHTML += `<div class="bot-message">${reply}</div>`;
-
-  input.value = "";
-  chat.scrollTop = chat.scrollHeight;
-}
+<div class="chat-footer">
+<input id="userInput">
+<button onclick="sendMessage()">Send</button>
+</div>
+</div>
 
 
+<footer>
+<p>© 2025 Hot Beans</p>
+</footer>
 
-function sendQuick(text) {
-  document.getElementById("userInput").value = text;
-  sendMessage();
-}
-
-
-
+<script>
 function toggleChat() {
-  const chat = document.querySelector(".chatbot");
-
-  if (chat.style.display === "none" || chat.style.display === "") {
-    chat.style.display = "block";
-  } else {
-    chat.style.display = "none";
-  }
+    const chat = document.querySelector(".chatbot");
+    chat.style.display = chat.style.display === "block" ? "none" : "block";
 }
 
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let chat = document.getElementById("chatBody");
 
+    chat.innerHTML += `<div class="user-message">${input.value}</div>`;
+    chat.innerHTML += `<div class="bot-message">Thanks! I'll help you navigate.</div>`;
 
-function clearChat() {
-  document.getElementById("chatBody").innerHTML =
-    `<div class="bot-message">Chat cleared. How can I help?</div>`;
+    input.value = "";
 }
-
-
-
-function showPage(pageId) {
-  const pages = document.querySelectorAll('.page-container');
-  pages.forEach(page => page.classList.remove('active'));
-
-  document.getElementById(pageId).classList.add('active');
-
-  const navLinks = document.querySelectorAll('nav ul li a');
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('onclick') === `showPage('${pageId}')`) {
-      link.classList.add('active');
-    }
-  });
-
-  window.scrollTo(0, 0);
-}
-
-
-
-document.getElementById('applicationForm')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Thank you for your application!');
-  this.reset();
-});
-
-document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Thank you for your message!');
-  this.reset();
-});
 </script>
+
 </body>
 </html>
 
