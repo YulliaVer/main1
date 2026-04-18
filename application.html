@@ -1,171 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hot Beans</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans - Web Development Experts</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<style>
-/* KEEP YOUR ORIGINAL CSS HERE (unchanged) */
-</style>
+    <style>
+        :root {
+            --primary: #ac55c2;
+            --secondary: #C6426E;
+            --dark: #292929;
+            --light: #f5f5f5;
+            --accent: #050505;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-container {
+            display: none;
+        }
+
+        .page-container.active {
+            display: block;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ffae00d3;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: var(--primary);
+        }
+
+        .ad {
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: rgba(255, 221, 0, 0.9);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="trainees.html">Trainees</a></li>
-<li><a href="jobs.html">Jobs</a></li>
-<li><a href="courses.html">Courses</a></li>
-<li><a href="application.html">Application</a></li>
-<li><a href="contactus.html">Contact Us</a></li>
-</ul>
-</nav>
-</header>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="trainees.html">Trainees</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="application.html">Application</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- HERO -->
-<section class="ad home-ad">
-<div class="ad-content">
-<h1>Apply to Hot Beans</h1>
-<p>Join Hot Beans and kickstart your career</p>
-<a href="#" class="btn">Apply Now</a>
-</div>
-</section>
+    <!-- HERO -->
+    <section class="ad home-ad">
+        <div class="ad-content">
+            <h1>Apply to Hot Beans</h1>
+            <p>Join Hot Beans and kickstart your career in web development.</p>
+            <a href="#" onclick="showPage('application')" class="btn">Apply Now</a>
+        </div>
+    </section>
 
-<!-- APPLICATION FORM -->
-<section>
-<div class="container">
+    <!-- APPLICATION FORM SECTION -->
+    <section class="section">
+        <div class="container">
 
-<div class="application-ad ad">
-<div class="ad-content">
-<h1>Apply to Hot Beans</h1>
-<p>Fill out the form below</p>
-</div>
-</div>
+            <div class="form-container">
 
-<div class="form-container">
+                <!-- FIXED: only ONE form -->
+                <form id="applicationForm" action="https://formspree.io/f/xnjgekqq" method="POST">
 
-<form id="applicationForm" action="https://formspree.io/f/xnjgekqq" method="POST">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="name" required>
+                    </div>
 
-<div class="form-group">
-<label>First Name</label>
-<input type="text" name="name" required>
-</div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="surname" required>
+                    </div>
 
-<div class="form-group">
-<label>Last Name</label>
-<input type="text" name="surname" required>
-</div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
 
-<div class="form-group">
-<label>Email</label>
-<input type="email" name="email" required>
-</div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" required>
+                    </div>
 
-<div class="form-group">
-<label>Phone</label>
-<input type="tel" name="phone" required>
-</div>
+                    <div class="form-group">
+                        <label>Position</label>
+                        <select name="jobs">
+                            <option>Frontend Developer</option>
+                            <option>Backend Developer</option>
+                            <option>Full Stack Developer</option>
+                        </select>
+                    </div>
 
-<div class="form-group">
-<label>Position</label>
-<select name="jobs" required>
-<option value="">Select</option>
-<option>Frontend</option>
-<option>Backend</option>
-<option>Full Stack</option>
-<option>UI/UX</option>
-</select>
-</div>
+                    <div class="form-group">
+                        <label>Experience</label>
+                        <textarea name="experience"></textarea>
+                    </div>
 
-<div class="form-group">
-<label>Experience</label>
-<textarea name="experience"></textarea>
-</div>
+                    <div class="form-group">
+                        <label>Skills</label>
+                        <textarea name="skills"></textarea>
+                    </div>
 
-<div class="form-group">
-<label>Skills</label>
-<textarea name="skills"></textarea>
-</div>
+                    <div class="form-group">
+                        <label>Portfolio</label>
+                        <input type="url" name="portfolio">
+                    </div>
 
-<div class="form-group">
-<label>Portfolio</label>
-<input type="url" name="portfolio">
-</div>
+                    <div class="form-group">
+                        <label>Years of Experience</label>
+                        <input type="number" name="years" min="0" max="50">
+                    </div>
 
-<div class="form-group">
-<label>Years</label>
-<input type="number" name="years">
-</div>
+                    <button type="submit" class="btn">Submit Application</button>
 
-<button type="submit" class="btn">Submit</button>
+                </form>
 
-</form>
-</div>
-</div>
-</section>
+            </div>
+        </div>
+    </section>
 
-<!-- CHATBOT -->
-<button class="chat-toggle" onclick="toggleChat()">💬</button>
+    <!-- CHAT -->
+    <button class="chat-toggle" onclick="toggleChat()">💬</button>
 
-<div class="chatbot">
-<div class="chat-header">Site Assistant</div>
+    <div class="chatbot">
+        <div class="chat-header">Site Assistant</div>
 
-<div class="chat-body" id="chatBody">
-<div class="bot-message">Hello! Ask me where to go.</div>
-</div>
+        <div class="chat-body" id="chatBody">
+            <div class="bot-message">Hello! Ask me where to go.</div>
+        </div>
 
-<div class="chat-footer">
-<input type="text" id="userInput">
-<button onclick="sendMessage()">Send</button>
-<button onclick="clearChat()">Clear</button>
-</div>
-</div>
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Ask something...">
+            <button onclick="sendMessage()">Send</button>
+            <button onclick="clearChat()">Clear</button>
+        </div>
+    </div>
 
-<!-- FOOTER -->
-<footer>
-<div class="container">
-<p>&copy; 2025 Hot Beans</p>
-</div>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hot Beans. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-<!-- SCRIPT -->
-<script>
-function sendMessage() {
-let input = document.getElementById("userInput");
-let chat = document.getElementById("chatBody");
-let message = input.value.toLowerCase();
+    <!-- SCRIPT FIXED -->
+    <script>
+        function sendMessage() {
+            let input = document.getElementById("userInput");
+            let message = input.value.toLowerCase();
+            let chat = document.getElementById("chatBody");
 
-chat.innerHTML += "<div class='user-message'>" + message + "</div>";
+            chat.innerHTML += `<div class="user-message">${message}</div>`;
 
-let reply = "Sorry, I didn't understand.";
+            let reply = "Sorry, I didn't understand.";
 
-if (message.includes("home")) {
-reply = 'Go to <a href="index.html">Home</a>';
-}
+            if (message.includes("home")) {
+                reply = 'Go to <a href="index.html">Home Page</a>';
+            } else if (message.includes("jobs")) {
+                reply = 'Visit <a href="jobs.html">Jobs Page</a>';
+            } else if (message.includes("contact")) {
+                reply = 'Go to <a href="contactus.html">Contact Page</a>';
+            }
 
-chat.innerHTML += "<div class='bot-message'>" + reply + "</div>";
+            chat.innerHTML += `<div class="bot-message">${reply}</div>`;
+            input.value = "";
+            chat.scrollTop = chat.scrollHeight;
+        }
 
-input.value = "";
-}
+        function toggleChat() {
+            const chat = document.querySelector(".chatbot");
+            chat.style.display = (chat.style.display === "block") ? "none" : "block";
+        }
 
-function toggleChat() {
-const chat = document.querySelector(".chatbot");
-chat.style.display = chat.style.display === "block" ? "none" : "block";
-}
+        function clearChat() {
+            document.getElementById("chatBody").innerHTML =
+                `<div class="bot-message">Chat cleared. How can I help?</div>`;
+        }
 
-function clearChat() {
-document.getElementById("chatBody").innerHTML =
-"<div class='bot-message'>Chat cleared</div>";
-}
-</script>
+        document.getElementById('applicationForm')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your application!');
+            this.reset();
+        });
+    </script>
 
 </body>
+
 </html>
 
 
