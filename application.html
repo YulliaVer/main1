@@ -9,128 +9,230 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        :root {
-            --primary: #ac55c2;
-            --secondary: #C6426E;
-            --dark: #292929;
-            --light: #f5f5f5;
-            --accent: #050505;
-        }
+        <style>
+    :root {
+        --primary: #ac55c2;
+        --secondary: #C6426E;
+        --dark: #292929;
+        --light: #f5f5f5;
+        --accent: #050505;
+        --warning: #ffae00d3;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
+    body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden; /* Prevents side-scrolling */
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-        .page-container {
-            display: none;
-        }
+    /* HEADER & NAV */
+    header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-        .page-container.active {
-            display: block;
-        }
+    .logo {
+        font-size: 2rem;
+        font-weight: 800;
+        text-align: center;
+        padding: 15px 0;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    nav {
+        background-color: var(--warning);
+        width: 100%;
+    }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #ffae00d3;
-        }
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        flex-wrap: wrap; /* Helps on smaller screens */
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: 0.3s;
+    }
 
-        nav ul li a {
-            display: block;
-            padding: 15px 25px;
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
+    nav ul li a:hover, nav ul li a.active {
+        background-color: var(--primary);
+    }
 
-        nav ul li a:hover,
-        nav ul li a.active {
-            background-color: var(--primary);
-        }
+    /* HERO / AD SECTION */
+    .ad {
+        position: relative;
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 40px 20px;
+    }
 
-        .ad {
-            min-height: 400px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-        }
+    /* Fix for overlapping text in the banner */
+    .ad-content {
+        background: rgba(0, 0, 0, 0.5); /* Adds contrast so text is readable */
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 800px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: rgba(255, 221, 0, 0.9);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
+    .ad-content h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 15px;
+    }
 
-        .section {
-            padding: 80px 0;
-        }
+    /* GRID & CARDS */
+    .section { padding: 60px 0; }
+    
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
 
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-        }
+    .course-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden; /* Clips image corners */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s;
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    .course-card:hover { transform: translateY(-5px); }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-        }
+    .course-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover; /* Prevents image stretching */
+    }
 
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-    </style>
+    .course-content { padding: 20px; flex-grow: 1; }
+
+    /* FORM STYLING */
+    .form-container {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        margin-top: -50px; /* Pulls form up slightly into the section */
+        position: relative;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+    
+    input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+
+    .btn {
+        background-color: var(--primary);
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+
+    .btn:hover { background-color: var(--secondary); }
+
+    /* CHATBOT */
+    .chatbot {
+        display: none;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 300px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+        z-index: 2000;
+    }
+
+    .chat-header { background: var(--dark); color: white; padding: 15px; border-radius: 10px 10px 0 0; }
+    .chat-body { height: 250px; overflow-y: auto; padding: 15px; font-size: 0.9rem; }
+    .bot-message { background: #f0f0f0; padding: 8px; margin-bottom: 10px; border-radius: 5px; width: fit-content; }
+    .user-message { background: var(--primary); color: white; padding: 8px; margin-bottom: 10px; border-radius: 5px; margin-left: auto; width: fit-content; }
+    
+    .chat-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--dark);
+        color: white;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 2001;
+    }
+
+    /* FOOTER */
+    footer {
+        background: var(--dark);
+        color: white;
+        padding: 40px 0 20px;
+        margin-top: 50px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .footer-column { flex: 1; min-width: 250px; }
+
+    @media (max-width: 768px) {
+        nav ul { flex-direction: column; text-align: center; }
+        .ad { min-height: 300px; }
+        .form-container { margin-top: 20px; padding: 20px; }
+    }
+</style>
 </head>
 
 <body>
