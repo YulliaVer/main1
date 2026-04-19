@@ -544,47 +544,104 @@
 
 
     <script>
-        function sendMessage() {
-            let input = document.getElementById("userInput");
-            let message = input.value.toLowerCase();
-            let chat = document.getElementById("chatBody");
+function sendMessage() {
+  let input = document.getElementById("userInput");
+  let message = input.value.toLowerCase();
+  let chat = document.getElementById("chatBody");
 
-            chat.innerHTML += `<div class="user-message">${message}</div>`;
+  chat.innerHTML += `<div class="user-message">${message}</div>`;
 
-            let reply = "Sorry, I didn't understand.";
+  let reply = "Sorry, I didn't understand.";
 
-            if (message.includes("home")) {
-                reply = 'Go to <a href="index.html">Home Page</a>';
-            } else if (message.includes("jobs")) {
-                reply = 'Visit <a href="jobs.html">Jobs Page</a>';
-            } else if (message.includes("contact")) {
-                reply = 'Go to <a href="contactus.html">Contact Page</a>';
-            }
+  if (message.includes("home")) {
+    reply = 'Go to <a href="index.html">Home Page</a>';
+  } 
+  else if (message.includes("jobs")) {
+    reply = 'Visit <a href="jobs.html">Jobs Page</a>';
+  } 
+  else if (message.includes("contact")) {
+    reply = 'Here is the <a href="contactus.html">Contact Page</a>';
+  } 
+  else if (message.includes("trainees")) {
+    reply = 'Here is the <a href="trainees.html">Trainees Page</a>';
+  } 
+  else if (message.includes("courses")) {
+    reply = 'Here is the <a href="courses.html">Courses Page</a>';
+  } 
+  else if (message.includes("apply") || message.includes("application")) {
+    reply = 'Here is the <a href="application.html">Application Page</a>';
+  } 
+  else if (message.includes("help")) {
+    reply = "Try: home, jobs, contact, courses, apply";
+  } 
+  else if (message.includes("services")) {
+    reply = "We offer web design and development services.";
+  }
 
-            chat.innerHTML += `<div class="bot-message">${reply}</div>`;
-            input.value = "";
-            chat.scrollTop = chat.scrollHeight;
-        }
+  chat.innerHTML += `<div class="bot-message">${reply}</div>`;
 
-        function toggleChat() {
-            const chat = document.querySelector(".chatbot");
-            chat.style.display = (chat.style.display === "block") ? "none" : "block";
-        }
+  input.value = "";
+  chat.scrollTop = chat.scrollHeight;
+}
 
-        function clearChat() {
-            document.getElementById("chatBody").innerHTML =
-                `<div class="bot-message">Chat cleared. How can I help?</div>`;
-        }
 
-        document.getElementById('applicationForm')?.addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for your application!');
-            this.reset();
-        });
+
+function sendQuick(text) {
+  document.getElementById("userInput").value = text;
+  sendMessage();
+}
+
+
+
+function toggleChat() {
+  const chat = document.querySelector(".chatbot");
+
+  if (chat.style.display === "none" || chat.style.display === "") {
+    chat.style.display = "block";
+  } else {
+    chat.style.display = "none";
+  }
+}
+
+
+function clearChat() {
+  document.getElementById("chatBody").innerHTML =
+    `<div class="bot-message">Chat cleared. How can I help?</div>`;
+}
+
+
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.page-container');
+  pages.forEach(page => page.classList.remove('active'));
+
+  document.getElementById(pageId).classList.add('active');
+
+  const navLinks = document.querySelectorAll('nav ul li a');
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('onclick') === `showPage('${pageId}')`) {
+      link.classList.add('active');
+    }
+  });
+
+  window.scrollTo(0, 0);
+}
+
+
+
+document.getElementById('applicationForm')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you for your application!');
+  this.reset();
+});
+
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you for your message!');
+  this.reset();
+});
     </script>
-
 </body>
-
 </html>
 
 
