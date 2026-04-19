@@ -1,356 +1,548 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hot Beans - Web Development Experts</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
-        <style>
-    :root {
-        --primary: #ac55c2;
-        --secondary: #C6426E;
-        --dark: #292929;
-        --light: #f5f5f5;
-        --accent: #050505;
-        --warning: #ffae00d3;
-    }
+       
+        :root {
+            --primary: #ac55c2;
+            --secondary: #C6426E;
+            --dark: #292929;
+            --light: #f5f5f5;
+            --accent: #050505;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        
+        .page-container {
+            display: none;
+        }
+        
+        .page-container.active {
+            display: block;
+        }
+        
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 1200;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 20px 0;
+            text-align: center;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ffae00d3;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--primary);
+        }
+        
+        nav ul li a.active {
+            background-color: var(--primary);
+        }
+        
+        
+        .ad {
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .ad-content .btn {
+         margin-top: 60px;
+        }
+        
+        .ad-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: rgba(255, 221, 0, 0.9);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+       
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+  
+        
+        
+.home-ad {
+    background-image: url('Banner1.png');
+}
 
-    body {
-        background-color: var(--light);
-        color: var(--dark);
-        line-height: 1.6;
-        overflow-x: hidden; /* Prevents side-scrolling */
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    /* HEADER & NAV */
-    header {
-        background-color: white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    .logo {
-        font-size: 2rem;
-        font-weight: 800;
-        text-align: center;
-        padding: 15px 0;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    nav {
-        background-color: var(--warning);
-        width: 100%;
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        flex-wrap: wrap; /* Helps on smaller screens */
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 15px 20px;
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: 600;
-        transition: 0.3s;
-    }
-
-    nav ul li a:hover, nav ul li a.active {
-        background-color: var(--primary);
-    }
-
-    /* HERO / AD SECTION */
-    .ad {
-        position: relative;
-        min-height: 450px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 40px 20px;
-    }
-
-    /* Fix for overlapping text in the banner */
-    .ad-content {
-        background: rgba(0, 0, 0, 0.5); /* Adds contrast so text is readable */
-        padding: 30px;
-        border-radius: 15px;
-        max-width: 800px;
-    }
-
-    .ad-content h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        margin-bottom: 15px;
-    }
-
-    /* GRID & CARDS */
-    .section { padding: 60px 0; }
-    
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    .course-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden; /* Clips image corners */
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s;
-    }
-
-    .course-card:hover { transform: translateY(-5px); }
-
-    .course-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover; /* Prevents image stretching */
-    }
-
-    .course-content { padding: 20px; flex-grow: 1; }
-
-    /* FORM STYLING */
-    .form-container {
-        background: white;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        margin-top: -50px; /* Pulls form up slightly into the section */
-        position: relative;
-    }
-
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
-    
-    input, select, textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        font-size: 1rem;
-    }
-
-    .btn {
-        background-color: var(--primary);
-        color: white;
-        padding: 12px 25px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: 0.3s;
-    }
-
-    .btn:hover { background-color: var(--secondary); }
-
-    /* CHATBOT */
-    .chatbot {
-        display: none;
-        position: fixed;
-        bottom: 90px;
-        right: 20px;
-        width: 300px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-        z-index: 2000;
-    }
-
-    .chat-header { background: var(--dark); color: white; padding: 15px; border-radius: 10px 10px 0 0; }
-    .chat-body { height: 250px; overflow-y: auto; padding: 15px; font-size: 0.9rem; }
-    .bot-message { background: #f0f0f0; padding: 8px; margin-bottom: 10px; border-radius: 5px; width: fit-content; }
-    .user-message { background: var(--primary); color: white; padding: 8px; margin-bottom: 10px; border-radius: 5px; margin-left: auto; width: fit-content; }
-    
-    .chat-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: var(--dark);
-        color: white;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 2001;
-    }
-
-    /* FOOTER */
-    footer {
-        background: var(--dark);
-        color: white;
-        padding: 40px 0 20px;
-        margin-top: 50px;
-    }
-
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-
-    .footer-column { flex: 1; min-width: 250px; }
-
-    @media (max-width: 768px) {
-        nav ul { flex-direction: column; text-align: center; }
-        .ad { min-height: 300px; }
-        .form-container { margin-top: 20px; padding: 20px; }
-    }
-</style>
+.home-ad2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+        
+               
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+       
+        .projects-ad {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        
+        .jobs-ad {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+             
+        
+        .courses-ad {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+              
+        
+        .application-ad {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .requirements {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .requirements h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .requirements ul {
+            list-style-position: inside;
+        }
+        
+        .requirements li {
+            margin-bottom: 10px;
+        }
+        
+        
+        .contact-ad {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+        
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .ad-content h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .trainee-profile,
+            .trainee-profile:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .trainee-img {
+                margin-bottom: 20px;
+            }
+            
+            .job-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            iframe {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-    <!-- HEADER -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="trainees.html">Trainees</a></li>
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="application.html">Application</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="trainees.html">Trainees</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="application.html">Application</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+                </ul>
+            </nav>
     </header>
+        <section class="ad home-ad">
+ 
+            <div class="ad-content">
+                <h1>Apply to Hot Beans</h1>
+                <p>Join Hot Beans and kickstart your career in web development with our expert-led courses and  training programs.</p>
+                <a href="#" onclick="showPage('application')" class="btn">Apply Now</a>
+            </div>
+        </section>
 
-    <!-- HERO -->
-    <section class="ad home-ad">
-        <div class="ad-content">
-            <h1>Apply to Hot Beans</h1>
-            <p>Join Hot Beans and kickstart your career in web development.</p>
-            <a href="#" onclick="showPage('application')" class="btn">Apply Now</a>
-        </div>
-    </section>
 
-    <!-- APPLICATION FORM SECTION -->
-    <section class="section">
+    <form action="https://formspree.io/f/xnjgekqq" method="POST">
+        
         <div class="container">
-
+            <div class="application-ad ad">
+                <div class="ad-content">
+                    <h1>Apply to Hot Beans</h1>
+                    <p>Fill out the application form below to join our web development training program and start your journey towards becoming a skilled web developer.</p>
+                </div>
+            </div>
             <div class="form-container">
-
-                <!-- FIXED: only ONE form -->
-                <form id="applicationForm" action="https://formspree.io/f/xnjgekqq" method="POST">
-
+                <form id="applicationForm">
                     <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" name="name" required>
+                        <label for="name">First Name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-
                     <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" name="surname" required>
+                        <label for="surname">Last Name</label>
+                        <input type="text" id="surname" name="surname" required>
                     </div>
-
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-
                     <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone" required>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
-
                     <div class="form-group">
-                        <label>Position</label>
-                        <select name="jobs">
-                            <option>Frontend Developer</option>
-                            <option>Backend Developer</option>
-                            <option>Full Stack Developer</option>
+                        <label for="jobs">Position Applied For</label>
+                        <select id="jobs" name="jobs" required>
+                            <option value="">Select a position</option>
+                            <option value="frontend">Frontend Developer</option>
+                            <option value="backend">Backend Developer</option>
+                            <option value="fullstack">Full Stack Developer</option>
+                            <option value="uiux">UI/UX Designer</option>
                         </select>
-                    </div>
-
+                    </div> 
                     <div class="form-group">
-                        <label>Experience</label>
-                        <textarea name="experience"></textarea>
+                        <label for="experience">Previous Experience</label>
+                        <textarea id="experience" name="experience" placeholder="Describe your previous experience in web development..." required></textarea>
                     </div>
-
                     <div class="form-group">
-                        <label>Skills</label>
-                        <textarea name="skills"></textarea>
+                        <label for="skills">Key Skills</label>
+                        <textarea id="skills" name="skills" placeholder="List your key skills relevant to web development..." required></textarea>
                     </div>
-
                     <div class="form-group">
-                        <label>Portfolio</label>
-                        <input type="url" name="portfolio">
+                        <label for="portfolio">Portfolio Link</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="Provide a link to your portfolio or GitHub..." required>
                     </div>
-
+                    <div class = "form-group">
+                        <label for ="years">Years of Experience</label>
+                        <input type="number" id="years" name="years" min="0" max="50" required>
+                    </div>
                     <div class="form-group">
-                        <label>Years of Experience</label>
-                        <input type="number" name="years" min="0" max="50">
+                        <button type="submit" class="btn">Submit Application</button>
                     </div>
-
-                    <button type="submit" class="btn">Submit Application</button>
-
                 </form>
-
             </div>
         </div>
+    </form>
     </section>
+</body> 
 
-    <!-- CHAT -->
-    <button class="chat-toggle" onclick="toggleChat()">💬</button>
 
-    <div class="chatbot">
-        <div class="chat-header">Site Assistant</div>
-
-        <div class="chat-body" id="chatBody">
-            <div class="bot-message">Hello! Ask me where to go.</div>
-        </div>
-
-        <div class="chat-footer">
-            <input type="text" id="userInput" placeholder="Ask something...">
-            <button onclick="sendMessage()">Send</button>
-            <button onclick="clearChat()">Clear</button>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Hot Beans. All Rights Reserved.</p>
-        </div>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Hot Beans</h3>
+                    <p>Empowering the next generation of web developers through innovative training and real-world experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+             
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Ealing Green , London, UK</li>
+                        <li><i class="fas fa-phone"></i> +44 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> xxxxxxx@college.wlc.ac.uk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Hot Beans. All Rights Reserved.</p>
+            </div>
     </footer>
 
-    <!-- SCRIPT FIXED -->
+
     <script>
         function sendMessage() {
             let input = document.getElementById("userInput");
