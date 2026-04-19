@@ -511,7 +511,21 @@
         </div>
     </form>
     </section>
-</body> 
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
+<div class="chatbot">
+  <div class="chat-header">Site Assistant</div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="bot-message">Hello! Ask me where to go.</div>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+    <button onclick="clearChat()">Clear Chat</button>
+</div>
+</div>
+
 
 
     <footer>
