@@ -196,15 +196,6 @@
         }
         
                
-        .skill-tag {
-            display: inline-block;
-            background-color: var(--light);
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
         
        
         .projects-ad {
@@ -389,69 +380,49 @@
             font-size: 0.9rem;
             color: #000000;
         }
-        .why-us {
-            padding: 80px 10%;
-        }
-
-        .why-us h2 {
-            font: 1000 28px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            letter-spacing: 2px;
-            color: #000;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .why-us .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-        }
-        .why-us .card {
-            background-color: rgb(243, 186, 71);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .why-us .card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .why-us .card p {
-            color: #000;
-            line-height: 1.6;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .rewards {
-            background: #e8a831;
-            background: linear-gradient(90deg, rgba(232, 168, 49, 1) 0%, rgba(199, 143, 87, 1) 50%, rgba(247, 200, 96, 1) 100%);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .rewards h2 {
-            font: 1000 28px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            letter-spacing: 2px;
-            color: #000;
-            margin-bottom: 20px;
-        }
-        .rewards img {
-            max-width: 60%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .rewards p {
-            color: #000;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto ;
-            text-align: left;
-        }
+        .column {
+              float: left;
+              width: 25%;
+              padding: 10px;
+            }
+            
+            
+            .column img {
+              opacity: 0.8; 
+              cursor: pointer; 
+            }
+            
+            .column img:hover {
+              opacity: 1;
+            }
+            
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            .container {
+              position: relative;
+              display: none;
+            }
+            
+            #imgtext {
+              position: absolute;
+              bottom: 15px;
+              left: 15px;
+              color: white;
+              font-size: 20px;
+            }
+            
+            .closebtn {
+              position: absolute;
+              top: 10px;
+              right: 15px;
+              color: white;
+              font-size: 35px;
+              cursor: pointer;
+            }
         .chatbot {
               position: fixed;
               bottom: 20px;
@@ -572,7 +543,14 @@
             </nav>
     </header>
 
-    
+    < <section class="ad home-ad">
+ 
+        <div class="ad-content">
+            <h1>Our Recent Projects</h1>
+            <p>A small selection of our most recent projects.</p>
+            <a href="#" onclick="showPage('application')" class="btn">Apply Now</a>
+        </div>
+    </section>
  
        
         
