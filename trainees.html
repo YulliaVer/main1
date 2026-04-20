@@ -493,7 +493,30 @@
   <section>
     <div class= "trainee-large-card">
       <h2>We're a passionate team of developers specialising in bespoke web applications and mobile apps.</h2>
-      <img src="web-team.png" alt= "TeamImage 1">
+                <img id="mainSlide" src="homeimage1.jpg" alt="Success Stories" style="width:100%; max-image: 800px; border-radius: 10px; margin: 20px 0;">
+            <script>
+                var imgArray = [
+                    'traineeteam.png',
+                    'homeimage2.jpg',
+                    'homeimage3.jpg'
+                ];
+                var curIndex = 0;
+                var imgDuration = 2000;
+        
+                function slideShow() {
+            var imgElement = document.getElementById('mainSlide');
+            
+            if (imgElement) {
+                imgElement.src = imgArray[curIndex];
+                curIndex++;
+                if (curIndex == imgArray.length) { curIndex = 0; }
+            }
+            
+            setTimeout(slideShow, imgDuration);
+        }
+
+        window.onload = slideShow;
+    </script>
       <p>A team of professionals with combined experience of over 10 years working with digital products across a vast range of clients, ranging from ambitious start-ups to large influential companies.</p>
       <img src= "traineeteam.png" alt= "TeamImage 2">
     </div>
