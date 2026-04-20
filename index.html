@@ -615,12 +615,28 @@
         </section>
             <section class="rewards">
             <h2>Our Trainees' Success Stories</h2>
+            <script>
+                var imgArray = [
+                    'image1.png',
+                    'image2.png',
+                    'image3.png'
+                ];
+                var curIndex = 0;
+                var imgDuration = 2000;
+        
+                function slideShow() {
+                    document.getElementById('image1').src = imgArray[curIndex];
+                    curIndex++;
+                    if (curIndex == imgArray.length) { curIndex = 0; }
+                    setTimeout("slideShow()", imgDuration);
+                }
+                slideShow();
+            </script>
             <p>Discover how our trainees have transformed their lives and launched successful careers in web development with the help of Hot Beans.</p>
             <p>Our trainees come from all kinds of backgrounds. They can be beginners people looking to change careers or those who have been teaching themselves.. One thing they all have in common is that they are determined to grow.
 When they first join us many of them don't have experience with coding or design. Some aren't sure where to start while others just don't feel confident in what they can do.. With a structured way of learning projects they can work on and ongoing support they slowly get better.
 We've seen trainees go from writing their first lines of HTML to making professional websites that work well on any device. Some have learned JavaScript. Gone on to make interactive web apps. A few have used their skills to get their first job in tech while others have started freelancing or building their own businesses.
 What makes these stories special isn't just what they achieve. It's the journey they take. Every trainee starts out feeling unsure. Leaves, with skills they can use in the real world more confidence and a portfolio they're proud of.</p>
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Success Stories">
         </section>
     
 
@@ -672,7 +688,8 @@ What makes these stories special isn't just what they achieve. It's the journey 
             </div>
             
        
-    </footer>
+        </footer>
+
 
        <script>
 function sendMessage() {
@@ -716,14 +733,13 @@ function sendMessage() {
 }
 
 
-// QUICK BUTTONS
+
 function sendQuick(text) {
   document.getElementById("userInput").value = text;
   sendMessage();
 }
 
 
-// TOGGLE CHAT
 function toggleChat() {
   const chat = document.querySelector(".chatbot");
 
@@ -735,14 +751,12 @@ function toggleChat() {
 }
 
 
-// CLEAR CHAT
 function clearChat() {
   document.getElementById("chatBody").innerHTML =
     `<div class="bot-message">Chat cleared. How can I help?</div>`;
 }
 
 
-// PAGE NAVIGATION
 function showPage(pageId) {
   const pages = document.querySelectorAll('.page-container');
   pages.forEach(page => page.classList.remove('active'));
@@ -761,7 +775,6 @@ function showPage(pageId) {
 }
 
 
-// FORMS (SAFE OPTIONAL)
 document.getElementById('applicationForm')?.addEventListener('submit', function(e) {
   e.preventDefault();
   alert('Thank you for your application!');
