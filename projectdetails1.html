@@ -527,6 +527,40 @@
               cursor: pointer;
             }
     
+            .project-hero {
+                height: 80vh;
+                background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('parfetts-hero.jpg');
+                background-size: cover;
+                background-attachment: fixed; 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-align: center;
+            }
+            
+          
+            .brief-container {
+                display: flex;
+                max-width: 1200px;
+                margin: 80px auto;
+                padding: 0 40px;
+                gap: 60px;
+            }
+            
+            .brief-text { flex: 2; }
+            .brief-stats { 
+                flex: 1; 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 20px;
+            }
+            
+            .stat-item h3 {
+                font-size: 2.5rem;
+                color: var(--primary); 
+            }
+                
             
             .project-detail-hero {
                 height: 70vh;
