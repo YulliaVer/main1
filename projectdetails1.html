@@ -527,122 +527,104 @@
               cursor: pointer;
             }
     
-            .project-hero {
-                height: 80vh;
-                background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('parfetts-hero.jpg');
-                background-size: cover;
-                background-attachment: fixed; 
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                text-align: center;
-            }
-            
-          
-            .brief-container {
-                display: flex;
-                max-width: 1200px;
-                margin: 80px auto;
-                padding: 0 40px;
-                gap: 60px;
-            }
-            
-            .brief-text { flex: 2; }
-            .brief-stats { 
-                flex: 1; 
-                display: grid; 
-                grid-template-columns: 1fr 1fr; 
-                gap: 20px;
-            }
-            
-            .stat-item h3 {
-                font-size: 2.5rem;
-                color: var(--primary); 
-            }
-                
-            
             .project-detail-hero {
-                height: 300px
-                background: #dbd8d5;
-                background: linear-gradient(90deg, rgba(219, 216, 213, 1) 0%, rgba(245, 240, 237, 1) 50%, rgba(217, 211, 202, 1) 100%);
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed; 
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                text-align: center;
-                padding: 20px;
-            }
-            
-            .project-detail-hero h1 {
-                font-size: 4rem;
-                text-transform: uppercase;
-                letter-spacing: 5px;
-                margin-bottom: 10px;
-            }
-            
-            
-            .project-content-wrap {
-                max-width: 1100px;
-                margin: -60px auto 80px; 
-                background: white;
-                padding: 60px;
-                border-radius: 15px;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-                gap: 50px;
-                position: relative;
-                z-index: 10;
-            }
-            
-            .brief-text h2 {
-                color: var(--primary);
-                margin-bottom: 20px;
-                font-size: 2rem;
-            }
-            .brief-text p {
-                color: black;
-                font-size: 12px
-            
-            
-            .stats-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 30px;
-                border-left: 2px solid #eee;
-                padding-left: 40px;
-            }
-            
-            .stat-card h3 {
-                font-size: 2.5rem;
-                color: #ffae00;
-                margin-bottom: 5px;
-            }
-            
-            .stat-card p {
-                font-weight: 600;
-                text-transform: uppercase;
-                color: #888;
-                font-size: 0.8rem;
-            }
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        linear-gradient(90deg, rgba(219, 216, 213, 1) 0%, rgba(245, 240, 237, 1) 50%, rgba(217, 211, 202, 1) 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    
+        .project-detail-hero h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+    
       
-            .image-showcase {
-                width: 100%;
-                background-color: #f9f9f9;
-                padding: 100px 0;
-                text-align: center;
-            }
-            
-            .image-showcase img {
-                max-width: 45%;
-                border-radius: 10px;
-                box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            }
+        .project-content-wrap {
+            max-width: 1100px;
+            margin: -80px auto 60px;
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            position: relative;
+            z-index: 10;
+        }
+    
+        .brief-text h2 {
+            color: #333;
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #ffae00;
+            display: inline-block;
+        }
+    
+        .brief-text p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+    
+        .brief-text ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+    
+        .brief-text li { margin-bottom: 10px; }
+    
+   
+        .stats-sidebar {
+            border-left: 2px solid #eee;
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+        }
+    
+        .stat-card h3 {
+            font-size: 2.5rem;
+            color: #ffae00;
+            margin-bottom: 5px;
+        }
+    
+        .stat-card p {
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #888;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+    
+       
+        .image-showcase {
+            width: 100%;
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            text-align: center;
+        }
+    
+        .image-showcase img {
+            max-width: 80%; 
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
             
            
 
@@ -698,29 +680,7 @@
                 </ul>
             </nav>
     </header>
-  <section class="project-hero">
-    <div class="hero-text">
-        <h1>Tesco Grocery: Next-Gen User Experience</h1>
-        <p>To streamline the mobile-first shopping experience and reduce checkout friction for over 1.2 million weekly active users.</p>
-    </div>
-</section>
 
-<section class="project-brief">
-    <div class="brief-container">
-        <div class="brief-text">
-           <h1>Introduction</h1>
-            <p>The Tesco Grocery Redesign project was initiated to modernize the digital shopping experience for one of the UK’s leading retailers. As consumer behavior shifts increasingly toward mobile-first interactions, the primary objective of this project was to transform a complex legacy e-commerce platform into a streamlined, high-performance web application.By focusing on the "Zero-Friction" design philosophy, the project aims to minimize the cognitive load on the user, ensuring that the journey from product discovery to final checkout is intuitive and efficient. This redesign does not merely update the visual aesthetics; it implements a robust technical framework designed to handle high-traffic volumes while maintaining accessibility standards for a diverse user base.</p>
-            <div class="brief-stats">
-            <div class="stat-item"><h3>3,000+</h3><p>Active Users</p></div>
-            <div class="stat-item"><h3>£350m</h3><p>Annual Sales</p></div>
-        </div>
-    </div>
-</section>
-<section>
-    <div class = "image-showcase">
-        <img src ="tesco1.jpg" alt= "TescoShowcase1">
-    </div>
-</section>
 <section class="project-detail-hero">
         <h1>Tesco Grocery Redesign</h1>
         <p>A Next-Gen User Experience for 1.2 Million Weekly Users</p>
