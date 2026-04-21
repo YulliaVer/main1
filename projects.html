@@ -528,84 +528,65 @@
             }
           
            
+        
             .projects-container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 40px 20px;
                 display: flex;
-                flex-wrap: wrap;
-                gap: 40px;
-                padding: 60px 10%;
-                justify-content: center; 
+                flex-direction: column;
+                gap: 50px; 
             }
             
-            .project-card {
-                flex: 1 1 calc(50% - 40px); 
-                min-width: 350px; 
-                max-width: 600px;
-                position: relative; 
+           
+            .project-card-horizontal {
+                display: flex;
+                background: white;
+                border-radius: 15px;
                 overflow: hidden;
-                border-radius: 12px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-                height: 400px; 
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                min-height: 350px;
             }
             
-            .image-box {
-                width: 100%;
-                height: 100%;
+            .project-image {
+                flex: 1;
                 position: relative;
-                background-color: #000;
             }
             
-            .image-box img {
+            .project-image img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover; 
                 display: block;
-                transition: transform 0.6s ease;
             }
             
-     
-            .info-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(41, 41, 41, 0.9);
+            
+            .project-info {
+                flex: 1; 
+                padding: 40px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 justify-content: center;
-                opacity: 0; 
-                transition: opacity 0.4s ease;
-                z-index: 2;
+                align-items: flex-start; 
+                background-color: #fff;
             }
             
-            .text {
-                color: white;
-                text-align: center;
-                padding: 20px;
-                transform: translateY(20px); 
-                transition: transform 0.4s ease;
+            .project-info h3 {
+                font-size: 2rem;
+                color: var(--secondary);
+                margin-bottom: 15px;
             }
             
-            .text h3 {
-                color: #ffcc00; 
-                margin-bottom: 10px;
-                font-size: 1.8rem;
+            .project-info p {
+                font-size: 1.1rem;
+                color: #666;
+                margin-bottom: 25px;
             }
             
            
-            .project-card:hover img {
-                transform: scale(1.1); 
+            .row-reverse {
+                flex-direction: row-reverse;
             }
-            
-            .project-card:hover .info-overlay {
-                opacity: 1; 
-            }
-            
-            .project-card:hover .text {
-                transform: translateY(0); 
-            }
-          
             
         
         
@@ -633,9 +614,17 @@
                 height: auto; 
             }
             .project-card {
-                    flex: 1 1 100%; 
-                    height: 350px;
-                }
+                flex: 1 1 100%; 
+                height: 350px;
+            }
+            .project-card-horizontal {
+                flex-direction: column;
+    }
+            .project-info {
+                align-items: center;
+                text-align: center;
+    }
+}
             }
         }
 
@@ -669,49 +658,43 @@
             </div>
         </section>
 
-<section>
-<div class="project-card">
-    <a href="projectdetails.html">
-        <div class="image-box">
-            <img src="tesco.jpg" alt="Tesco Project">
-            <div class="info-overlay">
-                <div class="text">
-                    <h3>Tesco Website</h3>
-                    <p>E-commerce Design & Development</p>
-                    <span class="btn" style="padding: 5px 15px; font-size: 0.8rem;">View Details</span>
-                </div>
+<section class="section">
+    <div class="projects-container">
+
+        <div class="project-card-horizontal">
+            <div class="project-image">
+                <img src="project1.png" alt="Tesco Project">
+            </div>
+            <div class="project-info">
+                <h3>Tesco Website</h3>
+                <p>A full e-commerce redesign focusing on user experience and mobile-first accessibility.</p>
+                <a href="projectdetails.html" class="btn">View Project Details</a>
             </div>
         </div>
-    </a>
-</div>
-<div class="project-card">
-    <a href="projectdetails.html">
-        <div class="image-box">
-            <img src="dusk.jpg" alt="Tesco Project">
-            <div class="info-overlay">
-                <div class="text">
-                    <h3>Dusk Website</h3>
-                    <p>E-commerce Design & Development</p>
-                    <span class="btn" style="padding: 5px 15px; font-size: 0.8rem;">View Details</span>
-                </div>
+
+        <div class="project-card-horizontal row-reverse">
+            <div class="project-image">
+                <img src="project2.png" alt="Dusk Lighting">
+            </div>
+            <div class="project-info">
+                <h3>Dusk Lighting</h3>
+                <p>Clean, minimal product catalog development featuring high-resolution galleries.</p>
+                <a href="projectdetails2.html" class="btn">View Project Details</a>
             </div>
         </div>
-    </a>
-</div>
-<div class="project-card">
-    <a href="projectdetails.html">
-        <div class="image-box">
-            <img src="bloomwild.jpg" alt="Tesco Project">
-            <div class="info-overlay">
-                <div class="text">
-                    <h3>Bloom & Wild Website</h3>
-                    <p>E-commerce Design & Development</p>
-                    <span class="btn" style="padding: 5px 15px; font-size: 0.8rem;">View Details</span>
-                </div>
+        <div class="project-card-horizontal row-reverse">
+            <div class="project-image">
+                <img src="project2.png" alt="Dusk Lighting">
+            </div>
+            <div class="project-info">
+                <h3>Bloom & Wild</h3>
+                <p>Clean, minimal product catalog development featuring high-resolution galleries.</p>
+                <a href="projectdetails2.html" class="btn">View Project Details</a>
             </div>
         </div>
-    </a>
-</div>
+
+    </div>
+</section>
         
         
  <button class="chat-toggle" onclick="toggleChat()">💬</button>
