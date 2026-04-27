@@ -33,7 +33,6 @@
     a { color: var(--purple); text-decoration: none; }
     a:hover { text-decoration: underline; }
  
-    /* ── NAVBAR ── */
     header {
       background: var(--orange);
       position: sticky;
@@ -79,13 +78,12 @@
       text-decoration: none;
     }
  
-    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 320px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       padding: 4rem 3rem;
       overflow: hidden;
@@ -94,7 +92,6 @@
       background-position: center;
     }
  
-    /* Orange overlay matching the screenshot */
     .hero::before {
       content: '';
       position: absolute;
@@ -153,7 +150,6 @@
       text-decoration: none;
     }
  
-    /* ── MAIN CONTENT ── */
     main {
       flex: 1;
       max-width: 920px;
@@ -162,7 +158,6 @@
       padding: 0 1.5rem;
     }
  
-    /* ── FAQ CATEGORY ── */
     .faq-category {
       margin-bottom: 2.5rem;
     }
@@ -175,7 +170,6 @@
       margin-bottom: 1rem;
     }
  
-    /* ── ACCORDION ── */
     details {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -227,7 +221,6 @@
  
     .faq-answer a { color: var(--purple); }
  
-    /* ── CHAT WIDGET ── */
     .chat-fab {
       position: fixed;
       bottom: 2rem;
@@ -344,7 +337,6 @@
       color: #666;
     }
  
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav ul li a { padding: .5rem .65rem; font-size: .75rem; }
       .hero { padding: 2.5rem 1.5rem; }
@@ -371,7 +363,6 @@
     </nav>
   </header>
  
-  <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-content">
       <h1>Frequently Asked Questions</h1>
@@ -384,10 +375,8 @@
     </div>
   </section>
  
-  <!-- ── FAQ CONTENT ── -->
   <main>
  
-    <!-- Applying for Jobs -->
     <div class="faq-category">
       <h2>💼 Applying for Jobs</h2>
  
@@ -423,7 +412,6 @@
       </details>
     </div>
  
-    <!-- Courses & Training -->
     <div class="faq-category">
       <h2>📚 Courses &amp; Training</h2>
  
@@ -460,7 +448,6 @@
       </details>
     </div>
  
-    <!-- About Hot Beans -->
     <div class="faq-category">
       <h2>🏢 About Hot Beans</h2>
  
@@ -492,7 +479,6 @@
  
   </main>
  
-  <!-- ── CHAT WIDGET ── -->
   <button class="chat-fab" id="chatFab" title="Site Assistant">💬</button>
   <div class="chat-box" id="chatBox">
     <div class="chat-header">Site Assistant</div>
@@ -506,7 +492,6 @@
     </div>
   </div>
  
-  <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
