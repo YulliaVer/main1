@@ -131,24 +131,27 @@
     .hero p a { color: #fff; text-decoration: underline; }
  
     .hero-btn {
-      display: inline-block;
-      background: var(--purple);
-      color: #fff;
-      padding: .7rem 2.2rem;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: .9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background .2s, transform .15s;
-      text-decoration: none;
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: var(--primary);
+        olor: rgba(255, 221, 0, 0.9);
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        }
     }
  
     .hero-btn:hover {
-      background: var(--purple-dark);
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
+      background-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
  
     main {
       flex: 1;
@@ -308,7 +311,6 @@
     .chat-footer .chat-clear { background: #e53935; }
     .chat-footer .chat-clear:hover { background: #b71c1c; }
  
-    /* ── FOOTER ── */
     footer {
       background: #222;
       color: #aaa;
@@ -347,7 +349,6 @@
 </head>
 <body>
  
-  <!-- ── NAVBAR ── -->
   <header>
     <nav>
       <ul>
