@@ -1,286 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hot Beans - FAQs</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --orange:       #f5a623;
+      --orange-dark:  #e09010;
+      --purple:       #9b2d8f;
+      --purple-dark:  #7a1f70;
+      --light-bg:     #ebebeb;
+      --card-bg:      #ffffff;
+      --text:         #333333;
+      --text-light:   #666666;
+      --border:       #e0e0e0;
+      --radius:       10px;
+      --shadow:       0 4px 15px rgba(0,0,0,.08);
     }
-
+ 
     body {
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background: var(--light-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-
-   
+ 
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+ 
+    /* ── NAVBAR ── */
     header {
-      background-color: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background: var(--orange);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
     }
-
-    header h1 {
-      font-size: 40px;
-      font-weight: bold;
-    }
-
-    header p {
-      font-size: 15px;
-      margin-top: 8px;
-      opacity: 0.85;
-    }
-
+ 
     nav {
-      background: #00509E;
-      padding: 15px;
-      text-align: center;
-    }
-
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    nav ul li {
-      display: inline;
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-
-    
-    section {
-      text-align: left;
-      padding: 40px;
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      border-radius: 8px;
-    }
-
-    section h1 {
-      color: #003366;
-      font-size: 28px;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    section p.intro {
-      text-align: center;
-      color: #002147;
-      margin-bottom: 30px;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .accordion {
-      background-color: #eee;
-      color: #444;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-      transition: 0.4s;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .active, .accordion:hover {
-      background-color: #ccc;
-    }
-
-    .panel {
-      padding: 0 18px;
-      display: none;
-      background-color: white;
-      overflow: hidden;
-    }
-
-    .panel p {
-      padding: 12px 0;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #002147;
-    }
-
-    .category-title {
-      font-size: 17px;
-      font-weight: bold;
-      color: #00509E;
-      margin: 30px 0 10px 0;
-      border-left: 4px solid #003366;
-      padding-left: 10px;
-    }
-
-    .footer {
-      background-color: #003366;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      margin-top: 20px;
-    }
-
-    .footer .footer-grid {
+      max-width: 1300px;
+      margin: 0 auto;
       display: flex;
       justify-content: center;
-      gap: 60px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
+      align-items: center;
+      height: 52px;
+      padding: 0 1rem;
     }
-
-    .footer h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .footer ul {
+ 
+    nav ul {
       list-style: none;
-      font-size: 14px;
-      line-height: 1.8;
-      opacity: 0.85;
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
-    .footer p.copy {
-      font-size: 13px;
-      opacity: 0.7;
-      margin-top: 10px;
+ 
+    nav ul li a {
+      display: block;
+      color: #fff;
+      padding: .55rem 1.1rem;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+ 
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: rgba(0,0,0,.15);
+      text-decoration: none;
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4rem 3rem;
+      overflow: hidden;
+      background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1400&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+ 
+    /* Orange overlay matching the screenshot */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(245,166,35,.82) 0%,
+        rgba(230,140,20,.75) 50%,
+        rgba(200,180,30,.65) 100%
+      );
+    }
+ 
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+ 
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,.3);
+    }
+ 
+    .hero p {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+ 
+    .hero p a { color: #fff; text-decoration: underline; }
+ 
+    .hero-btn {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      padding: .7rem 2.2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background .2s, transform .15s;
+      text-decoration: none;
+    }
+ 
+    .hero-btn:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+ 
+    /* ── MAIN CONTENT ── */
+    main {
+      flex: 1;
+      max-width: 920px;
+      width: 100%;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+ 
+    /* ── FAQ CATEGORY ── */
+    .faq-category {
+      margin-bottom: 2.5rem;
+    }
+ 
+    .faq-category h2 {
+      font-size: 1.35rem;
+      color: #333;
+      border-left: 4px solid var(--purple);
+      padding-left: .75rem;
+      margin-bottom: 1rem;
+    }
+ 
+    /* ── ACCORDION ── */
+    details {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: .65rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+ 
+    details:hover { box-shadow: 0 6px 18px rgba(0,0,0,.1); }
+    details[open] { border-color: var(--purple); }
+ 
+    summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      font-size: .97rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #222;
+      user-select: none;
+    }
+ 
+    summary::-webkit-details-marker { display: none; }
+ 
+    summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--purple);
+      font-weight: 300;
+      transition: transform .2s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+      line-height: 1;
+    }
+ 
+    details[open] summary::after { transform: rotate(45deg); }
+ 
+    .faq-answer {
+      padding: .85rem 1.25rem 1rem;
+      color: var(--text-light);
+      line-height: 1.75;
+      font-size: .94rem;
+      border-top: 1px solid var(--border);
+    }
+ 
+    .faq-answer a { color: var(--purple); }
+ 
+    /* ── CHAT WIDGET ── */
+    .chat-fab {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(155,45,143,.4);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s, background .2s;
+    }
+ 
+    .chat-fab:hover { background: var(--purple-dark); transform: scale(1.08); }
+ 
+    .chat-box {
+      position: fixed;
+      bottom: 6.5rem;
+      right: 2rem;
+      width: 300px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(0,0,0,.18);
+      z-index: 200;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+    }
+ 
+    .chat-box.open { display: flex; }
+ 
+    .chat-header {
+      background: var(--orange);
+      color: #fff;
+      padding: .7rem 1rem;
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: .5px;
+    }
+ 
+    .chat-messages {
+      flex: 1;
+      padding: .75rem 1rem;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: .87rem;
+      color: var(--text);
+    }
+ 
+    .chat-msg { margin-bottom: .5rem; }
+ 
+    .chat-footer {
+      display: flex;
+      border-top: 1px solid var(--border);
+    }
+ 
+    .chat-footer input {
+      flex: 1;
+      border: none;
+      padding: .55rem .8rem;
+      font-size: .87rem;
+      outline: none;
+    }
+ 
+    .chat-footer button {
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      padding: .55rem .85rem;
+      cursor: pointer;
+      font-size: .8rem;
+      font-weight: 700;
+      transition: background .2s;
+    }
+ 
+    .chat-footer button:hover { background: var(--purple-dark); }
+ 
+    .chat-footer .chat-clear { background: #e53935; }
+    .chat-footer .chat-clear:hover { background: #b71c1c; }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 2.5rem 2rem 1.25rem;
+    }
+ 
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+ 
+    .footer-col h3 { color: #fff; margin-bottom: .6rem; font-size: .95rem; }
+    .footer-col p { line-height: 1.7; font-size: .88rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { font-size: .88rem; margin-bottom: .3rem; }
+ 
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #444;
+      padding-top: 1rem;
+      font-size: .83rem;
+      color: #666;
+    }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav ul li a { padding: .5rem .65rem; font-size: .75rem; }
+      .hero { padding: 2.5rem 1.5rem; }
+      .hero h1 { font-size: 2rem; }
+      .chat-box { width: calc(100vw - 2rem); right: 1rem; }
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>HOT BEANS</h1>
-  <p>Web Development Experts</p>
-</header>
-
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="trainees.html">Trainees</a></li>
-    <li><a href="jobs.html">Jobs</a></li>
-    <li><a href="courses.html">Courses</a></li>
-    <li><a href="projects.html">Our Projects</a></li>
-    <li><a href="application.html">Application</a></li>
-    <li><a href="contactus.html">Contact Us</a></li>
-    <li><a href="faq.html" style="text-decoration: underline;">FAQs</a></li>
-  </ul>
-</nav>
-
-<!-- Main Content -->
-<section>
-  <h1>Frequently Asked Questions</h1>
-  <p class="intro">Have questions? We have answers. Browse through our most commonly asked questions below.<br>
-  Can't find what you're looking for? <a href="contactus.html" style="color:#00509E;">Contact us</a> and we'll be happy to help.</p>
-
-  <!-- Category: Applying for Jobs -->
-  <p class="category-title">&#128188; Applying for Jobs</p>
-
-  <button class="accordion">How do I apply for a job?</button>
-  <div class="panel">
-    <p>You can browse our job listings on the <a href="jobs.html" style="color:#00509E;">Jobs page</a> and apply directly through our website by submitting your CV and cover letter.</p>
-  </div>
-
-  <button class="accordion">Can I apply for multiple jobs at once?</button>
-  <div class="panel">
-    <p>Yes! You can apply for multiple job openings that match your qualifications and interests at the same time.</p>
-  </div>
-
-  <button class="accordion">How long does the hiring process take?</button>
-  <div class="panel">
-    <p>The hiring process varies depending on the position and employer. Typically, it takes between 2 to 4 weeks from application to a final decision.</p>
-  </div>
-
-  <button class="accordion">Do you provide CV and resume-building assistance?</button>
-  <div class="panel">
-    <p>Yes! We offer CV-building workshops and personalised feedback to help strengthen your job application and stand out to employers.</p>
-  </div>
-
-  <!-- Category: Courses & Training -->
-  <p class="category-title">&#128218; Courses &amp; Training</p>
-
-  <button class="accordion">What courses does Hot Beans offer?</button>
-  <div class="panel">
-    <p>We offer a range of web development courses covering HTML, CSS, JavaScript, and more. Visit our <a href="courses.html" style="color:#00509E;">Courses page</a> to see the full list.</p>
-  </div>
-
-  <button class="accordion">Are the training programs free?</button>
-  <div class="panel">
-    <p>Some of our training programs are free, while others require a fee. Please check the individual course details on the Courses page for pricing information.</p>
-  </div>
-
-  <button class="accordion">Do I need any experience to join a course?</button>
-  <div class="panel">
-    <p>No prior experience is needed for our beginner courses. We welcome people from all backgrounds — whether you are completely new to coding or looking to build on existing skills.</p>
-  </div>
-
-  <button class="accordion">Will I receive a certificate after completing a course?</button>
-  <div class="panel">
-    <p>Yes, upon successful completion of a course you will receive a certificate that you can add to your CV and professional profiles.</p>
-  </div>
-
-  <!-- Category: About Hot Beans -->
-  <p class="category-title">&#127970; About Hot Beans</p>
-
-  <button class="accordion">What services does Hot Beans provide?</button>
-  <div class="panel">
-    <p>Hot Beans offers job recruitment services, web development training courses, career development resources, and professional networking opportunities for aspiring developers.</p>
-  </div>
-
-  <button class="accordion">Where is Hot Beans located?</button>
-  <div class="panel">
-    <p>We are based in Ealing Green, London, UK. You are also welcome to get in touch with us online through our <a href="contactus.html" style="color:#00509E;">Contact Us page</a>.</p>
-  </div>
-
-  <button class="accordion">How do I contact Hot Beans?</button>
-  <div class="panel">
-    <p>You can reach us by email at <a href="mailto:info@hotbeans.com" style="color:#00509E;">info@hotbeans.com</a>, by phone at <a href="tel:+441234567890" style="color:#00509E;">+44 123 456 7890</a>, or by filling in the form on our <a href="contactus.html" style="color:#00509E;">Contact Us page</a>.</p>
-  </div>
-
-</section>
-
-<!-- Footer - matches your website -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h3>Hot Beans</h3>
+ 
+  <!-- ── NAVBAR ── -->
+  <header>
+    <nav>
       <ul>
-        <li>Empowering the next generation of</li>
-        <li>web developers through innovative</li>
-        <li>training and real-world experience.</li>
+        <li><a href="https://yulliaver.github.io/main1/index.html">Home</a></li>
+        <li><a href="https://yulliaver.github.io/main1/trainees.html">Trainees</a></li>
+        <li><a href="https://yulliaver.github.io/main1/jobs.html">Jobs</a></li>
+        <li><a href="https://yulliaver.github.io/main1/courses.html">Courses</a></li>
+        <li><a href="https://yulliaver.github.io/main1/projects.html">Our Projects</a></li>
+        <li><a href="https://yulliaver.github.io/main1/application.html">Application</a></li>
+        <li><a href="https://yulliaver.github.io/main1/contactus.html">Contact Us</a></li>
+        <li><a href="https://yulliaver.github.io/main1/faq.html" class="active">FAQs</a></li>
       </ul>
+    </nav>
+  </header>
+ 
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Frequently Asked Questions</h1>
+      <p>
+        Have questions? We have answers. Browse through our most commonly asked questions below.<br>
+        Can't find what you're looking for?
+        <a href="https://yulliaver.github.io/main1/contactus.html">Contact us</a> and we'll be happy to help.
+      </p>
+      <a href="https://yulliaver.github.io/main1/contactus.html" class="hero-btn">Contact Us</a>
     </div>
-    <div>
-      <h3>Contact Info</h3>
-      <ul>
-        <li>Ealing Green, London, UK</li>
-        <li>+44 123 456 7890</li>
-        <li>xxxxxxx@college.wlc.ac.uk</li>
-      </ul>
+  </section>
+ 
+  <!-- ── FAQ CONTENT ── -->
+  <main>
+ 
+    <!-- Applying for Jobs -->
+    <div class="faq-category">
+      <h2>💼 Applying for Jobs</h2>
+ 
+      <details>
+        <summary>How do I apply for a job?</summary>
+        <div class="faq-answer">
+          You can browse our job listings on the <a href="https://yulliaver.github.io/main1/jobs.html">Jobs page</a>
+          and apply directly through our website by submitting your CV and cover letter.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>Can I apply for multiple jobs at once?</summary>
+        <div class="faq-answer">
+          Yes! You can apply for multiple job openings that match your qualifications and interests at the same time.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>How long does the hiring process take?</summary>
+        <div class="faq-answer">
+          The hiring process varies depending on the position and employer. Typically, it takes between 2 to 4 weeks
+          from application to a final decision.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>Do you provide CV and resume-building assistance?</summary>
+        <div class="faq-answer">
+          Yes! We offer CV-building workshops and personalised feedback to help strengthen your job application and
+          stand out to employers.
+        </div>
+      </details>
+    </div>
+ 
+    <!-- Courses & Training -->
+    <div class="faq-category">
+      <h2>📚 Courses &amp; Training</h2>
+ 
+      <details>
+        <summary>What courses does Hot Beans offer?</summary>
+        <div class="faq-answer">
+          We offer a range of web development courses covering HTML, CSS, JavaScript, and more. Visit our
+          <a href="https://yulliaver.github.io/main1/courses.html">Courses page</a> to see the full list.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>Are the training programs free?</summary>
+        <div class="faq-answer">
+          Some of our training programs are free, while others require a fee. Please check the individual course
+          details on the Courses page for pricing information.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>Do I need any experience to join a course?</summary>
+        <div class="faq-answer">
+          No prior experience is needed for our beginner courses. We welcome people from all backgrounds &mdash;
+          whether you are completely new to coding or looking to build on existing skills.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>Will I receive a certificate after completing a course?</summary>
+        <div class="faq-answer">
+          Yes, upon successful completion of a course you will receive a certificate that you can add to your CV
+          and professional profiles.
+        </div>
+      </details>
+    </div>
+ 
+    <!-- About Hot Beans -->
+    <div class="faq-category">
+      <h2>🏢 About Hot Beans</h2>
+ 
+      <details>
+        <summary>What services does Hot Beans provide?</summary>
+        <div class="faq-answer">
+          Hot Beans offers job recruitment services, web development training courses, career development resources,
+          and professional networking opportunities for aspiring developers.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>Where is Hot Beans located?</summary>
+        <div class="faq-answer">
+          We are based in Ealing Green, London, UK. You are also welcome to get in touch with us online through
+          our <a href="https://yulliaver.github.io/main1/contactus.html">Contact Us page</a>.
+        </div>
+      </details>
+ 
+      <details>
+        <summary>How do I contact Hot Beans?</summary>
+        <div class="faq-answer">
+          You can reach us by email at <a href="mailto:info@hotbeans.com">info@hotbeans.com</a>, by phone at
+          <a href="tel:+441234567890">+44 123 456 7890</a>, or by filling in the form on our
+          <a href="https://yulliaver.github.io/main1/contactus.html">Contact Us page</a>.
+        </div>
+      </details>
+    </div>
+ 
+  </main>
+ 
+  <!-- ── CHAT WIDGET ── -->
+  <button class="chat-fab" id="chatFab" title="Site Assistant">💬</button>
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">Site Assistant</div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg">Hello! Ask me where to go.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Type a message…" />
+      <button onclick="sendChat()">Send</button>
+      <button class="chat-clear" onclick="clearChat()">Clear Chat</button>
     </div>
   </div>
-  <p class="copy">&copy; 2025 Hot Beans. All Rights Reserved.</p>
-</footer>
+ 
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3>Hot Beans</h3>
+        <p>Empowering the next generation of web developers through innovative training and real-world experience.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Info</h3>
+        <ul>
+          <li>Ealing Green, London, UK</li>
+          <li>+44 123 456 7890</li>
+          <li>xxxxxxx@college.wlc.ac.uk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Hot Beans. All Rights Reserved.</div>
+  </footer>
 
-<!-- Accordion JavaScript (from teacher's template) -->
 <script>
   var acc = document.getElementsByClassName("accordion");
   var i;
