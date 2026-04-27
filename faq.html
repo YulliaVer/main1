@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hot Beans - FAQs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #F0F8FF;
+      color: #333;
+    }
+
+    /* ── Header ── */
+    header {
+      background-color: #003366;
+      padding: 30px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 15px;
+      margin-top: 8px;
+      opacity: 0.85;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: #00509E;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Main section ── */
+    section {
+      text-align: left;
+      padding: 40px;
+      max-width: 900px;
+      margin: 30px auto;
+      background: #E6F0FA;
+      border-radius: 8px;
+    }
+
+    section h1 {
+      color: #003366;
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    section p.intro {
+      text-align: center;
+      color: #002147;
+      margin-bottom: 30px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── Accordion (from teacher's template) ── */
+    .accordion {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .active, .accordion:hover {
+      background-color: #ccc;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+    }
+
+    .panel p {
+      padding: 12px 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #002147;
+    }
+
+    /* ── Category headings ── */
+    .category-title {
+      font-size: 17px;
+      font-weight: bold;
+      color: #00509E;
+      margin: 30px 0 10px 0;
+      border-left: 4px solid #003366;
+      padding-left: 10px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: #003366;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+    }
+
+    footer .footer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    footer h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    footer ul {
+      list-style: none;
+      font-size: 14px;
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+
+    footer p.copy {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>HOT BEANS</h1>
+  <p>Web Development Experts</p>
+</header>
+
+<!-- Navigation - matches your website exactly -->
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="trainees.html">Trainees</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="projects.html">Our Projects</a></li>
+    <li><a href="application.html">Application</a></li>
+    <li><a href="contactus.html">Contact Us</a></li>
+    <li><a href="faq.html" style="text-decoration: underline;">FAQs</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<section>
+  <h1>Frequently Asked Questions</h1>
+  <p class="intro">Have questions? We have answers. Browse through our most commonly asked questions below.<br>
+  Can't find what you're looking for? <a href="contactus.html" style="color:#00509E;">Contact us</a> and we'll be happy to help.</p>
+
+  <!-- Category: Applying for Jobs -->
+  <p class="category-title">&#128188; Applying for Jobs</p>
+
+  <button class="accordion">How do I apply for a job?</button>
+  <div class="panel">
+    <p>You can browse our job listings on the <a href="jobs.html" style="color:#00509E;">Jobs page</a> and apply directly through our website by submitting your CV and cover letter.</p>
+  </div>
+
+  <button class="accordion">Can I apply for multiple jobs at once?</button>
+  <div class="panel">
+    <p>Yes! You can apply for multiple job openings that match your qualifications and interests at the same time.</p>
+  </div>
+
+  <button class="accordion">How long does the hiring process take?</button>
+  <div class="panel">
+    <p>The hiring process varies depending on the position and employer. Typically, it takes between 2 to 4 weeks from application to a final decision.</p>
+  </div>
+
+  <button class="accordion">Do you provide CV and resume-building assistance?</button>
+  <div class="panel">
+    <p>Yes! We offer CV-building workshops and personalised feedback to help strengthen your job application and stand out to employers.</p>
+  </div>
+
+  <!-- Category: Courses & Training -->
+  <p class="category-title">&#128218; Courses &amp; Training</p>
+
+  <button class="accordion">What courses does Hot Beans offer?</button>
+  <div class="panel">
+    <p>We offer a range of web development courses covering HTML, CSS, JavaScript, and more. Visit our <a href="courses.html" style="color:#00509E;">Courses page</a> to see the full list.</p>
+  </div>
+
+  <button class="accordion">Are the training programs free?</button>
+  <div class="panel">
+    <p>Some of our training programs are free, while others require a fee. Please check the individual course details on the Courses page for pricing information.</p>
+  </div>
+
+  <button class="accordion">Do I need any experience to join a course?</button>
+  <div class="panel">
+    <p>No prior experience is needed for our beginner courses. We welcome people from all backgrounds — whether you are completely new to coding or looking to build on existing skills.</p>
+  </div>
+
+  <button class="accordion">Will I receive a certificate after completing a course?</button>
+  <div class="panel">
+    <p>Yes, upon successful completion of a course you will receive a certificate that you can add to your CV and professional profiles.</p>
+  </div>
+
+  <!-- Category: About Hot Beans -->
+  <p class="category-title">&#127970; About Hot Beans</p>
+
+  <button class="accordion">What services does Hot Beans provide?</button>
+  <div class="panel">
+    <p>Hot Beans offers job recruitment services, web development training courses, career development resources, and professional networking opportunities for aspiring developers.</p>
+  </div>
+
+  <button class="accordion">Where is Hot Beans located?</button>
+  <div class="panel">
+    <p>We are based in Ealing Green, London, UK. You are also welcome to get in touch with us online through our <a href="contactus.html" style="color:#00509E;">Contact Us page</a>.</p>
+  </div>
+
+  <button class="accordion">How do I contact Hot Beans?</button>
+  <div class="panel">
+    <p>You can reach us by email at <a href="mailto:info@hotbeans.com" style="color:#00509E;">info@hotbeans.com</a>, by phone at <a href="tel:+441234567890" style="color:#00509E;">+44 123 456 7890</a>, or by filling in the form on our <a href="contactus.html" style="color:#00509E;">Contact Us page</a>.</p>
+  </div>
+
+</section>
+
+<!-- Footer - matches your website -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>Hot Beans</h3>
+      <ul>
+        <li>Empowering the next generation of</li>
+        <li>web developers through innovative</li>
+        <li>training and real-world experience.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact Info</h3>
+      <ul>
+        <li>Ealing Green, London, UK</li>
+        <li>+44 123 456 7890</li>
+        <li>xxxxxxx@college.wlc.ac.uk</li>
+      </ul>
+    </div>
+  </div>
+  <p class="copy">&copy; 2025 Hot Beans. All Rights Reserved.</p>
+</footer>
+
+<!-- Accordion JavaScript (from teacher's template) -->
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
