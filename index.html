@@ -703,6 +703,18 @@ What makes these stories special isn't just what they achieve. It's the journey 
 
 
        <script>
+        const faqs = {
+            "How do I apply for job?": 'You can browse our job listings on the Jobs page and apply directly through our website by submitting your CV and cover letter.'
+            "Can I apply for multiple jobs at once?": 'Yes! You can apply for multiple job openings that match your qualifications and interests at the same time.'
+            "How long does the hiring process take?":'The hiring process varies depending on the position and employer. Typically, it takes between 2 to 4 weeks from application to a final decision.'
+            "Do you provide CV and resume-building assistance?" : 'Yes! We offer CV-building workshops and personalised feedback to help strengthen your job application and stand out to employers.'
+            "What courses does the Hot Beans offer?" : 'We offer a range of web development courses covering HTML, CSS, JavaScript, and more. Visit our Courses page to see the full list.'
+            "Are the training programs free?" : 'Some of our training programs are free, while others require a fee. Please check the individual course details on the Courses page for pricing information.'
+            "Do you need any experience to join a course?" : 'No prior experience is needed for our beginner courses. We welcome people from all backgrounds - whether you are completely new to coding or looking to build on existing skills.'
+            "Will I receive a certificate after completing the course?" : 'Yes, upon successful completion of a course you will receive a certificate that you can add to your CV and professional profiles.'
+            "What services does the Hot Beans provide?" : 'Hot Beans offers job recruitment services, web development training courses, career development resources, and professional networking opportunities for aspiring developers.'
+            "Where is Hot Beans located?" : 'We are based in Ealing Green, London, UK.You are also welcome to get in touch with us online through our Contact Us page.'
+           };
 function sendMessage() {
   let input = document.getElementById("userInput");
   let message = input.value.toLowerCase();
@@ -736,6 +748,12 @@ function sendMessage() {
   else if (message.includes("services")) {
     reply = "We offer web design and development services.";
   }
+  else {
+      const matchedFaq = Object.keys(faqs).find(question =>
+          message.includes(question) || question.includes(message)
+      );
+      reply = matchedFaq ? faqs[matchedFaq] : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
+      
 
   chat.innerHTML += `<div class="bot-message">${reply}</div>`;
 
