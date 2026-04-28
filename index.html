@@ -741,12 +741,31 @@ function sendMessage() {
     reply = "Try asking: opening hours, how to apply, courses, location, qualifications.";
   } else if (message.includes("services")) {
     reply = "We offer web design and development services.";
- } else {
-    const userWords = message.split(" ").filter(w => w.length > 3);
+} else {
+  
+    const stopWords = ["what", "does", "will", "have", "that", "this", "with", "from", "they", "your", "about"];
     
-    const matchedFaq = Object.keys(faqs).find(question =>
-        userWords.some(word => question.includes(word))
-    );
+    const userWords = message
+        .replace("?", "")
+        .split(" ")
+        .filter(w => w.length > 2 && !stopWords.includes(w));
+
+    let bestMatch = null;
+    let bestScore = 0;
+
+    Object.keys(faqs).forEach(question => {
+        const score = userWords.filter(word => question.includes(word)).length;
+        if (score > bestScore) {
+            bestScore = score;
+            bestMatch = question;
+        }
+    });
+
+   
+    reply = bestScore > 0 
+        ? faqs[bestMatch] 
+        : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
+}
     
     reply = matchedFaq ? faqs[matchedFaq] : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
 }
