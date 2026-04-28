@@ -741,10 +741,15 @@ function sendMessage() {
     reply = "Try asking: opening hours, how to apply, courses, location, qualifications.";
   } else if (message.includes("services")) {
     reply = "We offer web design and development services.";
-  } else {
+ } else {
+    const userWords = message.split(" ").filter(w => w.length > 3);
+    
     const matchedFaq = Object.keys(faqs).find(question =>
-      message.includes(question) || question.includes(message)
+        userWords.some(word => question.includes(word))
     );
+    
+    reply = matchedFaq ? faqs[matchedFaq] : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
+}
     reply = matchedFaq ? faqs[matchedFaq] : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
   } 
 
