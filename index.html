@@ -702,7 +702,7 @@ What makes these stories special isn't just what they achieve. It's the journey 
         </footer>
 
 
-       <script>
+<script>
 const faqs = {
   "how do i apply for job?": 'You can browse our job listings on the Jobs page and apply directly through our website by submitting your CV and cover letter.',
   "can i apply for multiple jobs at once?": 'Yes! You can apply for multiple job openings that match your qualifications and interests at the same time.',
@@ -738,56 +738,45 @@ function sendMessage() {
   } else if (message.includes("apply") || message.includes("application")) {
     reply = 'Here is the <a href="application.html">Application Page</a>';
   } else if (message.includes("help")) {
-    reply = "Try asking: opening hours, how to apply, courses, location, qualifications.";
+    reply = "Try asking: location, certificate, experience, hiring process, CV help.";
   } else if (message.includes("services")) {
     reply = "We offer web design and development services.";
-} else {
-  
+  } else {
     const stopWords = ["what", "does", "will", "have", "that", "this", "with", "from", "they", "your", "about"];
-    
+
     const userWords = message
-        .replace("?", "")
-        .split(" ")
-        .filter(w => w.length > 2 && !stopWords.includes(w));
+      .replace("?", "")
+      .split(" ")
+      .filter(w => w.length > 2 && !stopWords.includes(w));
 
     let bestMatch = null;
     let bestScore = 0;
 
     Object.keys(faqs).forEach(question => {
-        const score = userWords.filter(word => question.includes(word)).length;
-        if (score > bestScore) {
-            bestScore = score;
-            bestMatch = question;
-        }
+      const score = userWords.filter(word => question.includes(word)).length;
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = question;
+      }
     });
 
-   
-    reply = bestScore > 0 
-        ? faqs[bestMatch] 
-        : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
-}
-    
-    reply = matchedFaq ? faqs[matchedFaq] : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
-}
-    reply = matchedFaq ? faqs[matchedFaq] : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
-  } 
+    reply = bestScore > 0
+      ? faqs[bestMatch]
+      : "Sorry, I didn't understand. Type <strong>help</strong> for options.";
+  }
 
   chat.innerHTML += `<div class="bot-message">${reply}</div>`;
   input.value = "";
   chat.scrollTop = chat.scrollHeight;
 }
 
-
-
 function sendQuick(text) {
   document.getElementById("userInput").value = text;
   sendMessage();
 }
 
-
 function toggleChat() {
   const chat = document.querySelector(".chatbot");
-
   if (chat.style.display === "none" || chat.style.display === "") {
     chat.style.display = "block";
   } else {
@@ -795,17 +784,14 @@ function toggleChat() {
   }
 }
 
-
 function clearChat() {
   document.getElementById("chatBody").innerHTML =
     `<div class="bot-message">Chat cleared. How can I help?</div>`;
 }
 
-
 function showPage(pageId) {
   const pages = document.querySelectorAll('.page-container');
   pages.forEach(page => page.classList.remove('active'));
-
   document.getElementById(pageId).classList.add('active');
 
   const navLinks = document.querySelectorAll('nav ul li a');
@@ -815,10 +801,8 @@ function showPage(pageId) {
       link.classList.add('active');
     }
   });
-
   window.scrollTo(0, 0);
 }
-
 
 document.getElementById('applicationForm')?.addEventListener('submit', function(e) {
   e.preventDefault();
