@@ -68,15 +68,20 @@
         
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items:center;
             background-color: #ffae00d3;
+            position: relative;
         }
         .nav-label {
+            position: absolute;
+            left:20px;
             color: white;
             font-weight: 700;
             font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
+            text-decoration:none;
         }
         
         nav ul {
@@ -566,7 +571,7 @@
 <body>
     <header>
             <nav>
-                <span class = "nav-label">Login</span>
+                <a href="login.html"class="nav-label">Login</a>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="trainees.html">Trainees</a></li>
