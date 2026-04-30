@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ac55c2;
+            --secondary: #C6426E;
+            --dark: #292929;
+            --light: #f0f0f0;
+            --nav-orange: #ffae00d3;
+            --card-gold: #e8b84b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        body { background-color: var(--light); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+        nav { display: flex; justify-content: center; background-color: var(--nav-orange); }
+        nav ul { display: flex; list-style: none; flex-wrap: wrap; justify-content: center; }
+        nav ul li a { display: block; padding: 15px 20px; color: white; text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.83rem; letter-spacing: 1px; transition: background 0.2s; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--primary); }
+
+        .hero-banner { background: linear-gradient(135deg, #e8820c 0%, #f5a623 40%, #d4700a 70%, #c8b400 100%); padding: 60px 40px; text-align: center; position: relative; overflow: hidden; }
+        .hero-banner::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px); }
+        .hero-banner h2 { font-size: 2.4rem; font-weight: 900; text-transform: uppercase; color: white; letter-spacing: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.2); position: relative; }
+        .hero-banner p { color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 10px; position: relative; }
+
+        .page-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 20px; }
+
+        .login-card { background: var(--card-gold); border-radius: 16px; padding: 48px 44px; width: 100%; max-width: 440px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); animation: fadeUp 0.5s ease both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+        .login-card h1 { font-size: 2rem; font-weight: 900; color: var(--dark); text-align: center; margin-bottom: 6px; letter-spacing: 1px; }
+        .login-card .subtitle { text-align: center; font-size: 0.88rem; color: rgba(41,41,41,0.65); margin-bottom: 32px; }
+
+        .input-box { position: relative; margin-bottom: 18px; }
+        .input-box i.icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: rgba(41,41,41,0.45); font-size: 0.9rem; pointer-events: none; }
+        .input-box input { width: 100%; padding: 14px 14px 14px 42px; background: rgba(255,255,255,0.55); border: 2px solid rgba(255,255,255,0.7); border-radius: 10px; font-size: 0.95rem; color: var(--dark); outline: none; transition: all 0.25s; }
+        .input-box input::placeholder { color: rgba(41,41,41,0.4); }
+        .input-box input:focus { background: rgba(255,255,255,0.85); border-color: var(--primary); box-shadow: 0 0 0 3px rgba(172,85,194,0.2); }
+        .input-box .toggle-pw { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: rgba(41,41,41,0.4); cursor: pointer; font-size: 0.9rem; transition: color 0.2s; }
+        .input-box .toggle-pw:hover { color: var(--primary); }
+
+        .remember-forgot { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; margin-top: 4px; }
+        .remember-forgot label { display: flex; align-items: center; gap: 7px; font-size: 0.85rem; color: rgba(41,41,41,0.7); cursor: pointer; user-select: none; }
+        .remember-forgot input[type="checkbox"] { accent-color: var(--primary); width: 15px; height: 15px; cursor: pointer; }
+        .remember-forgot a { font-size: 0.85rem; color: var(--dark); font-weight: 600; text-decoration: none; transition: color 0.2s; }
+        .remember-forgot a:hover { color: var(--primary); }
+
+        .btn { display: block; width: 100%; padding: 14px; background-color: var(--primary); color: rgba(255, 230, 0, 0.92); border: none; border-radius: 30px; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 26px; }
+        .btn:hover { background-color: #8e3fa8; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(172,85,194,0.35); }
+        .btn:active { transform: translateY(0); }
+
+        .divider { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(41,41,41,0.2); }
+        .divider span { font-size: 0.75rem; color: rgba(41,41,41,0.5); text-transform: uppercase; letter-spacing: 1px; }
+
+        .social-login { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; }
+        .social-btn { width: 44px; height: 44px; border-radius: 10px; background: rgba(255,255,255,0.55); border: 2px solid rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1rem; cursor: pointer; text-decoration: none; transition: all 0.25s; }
+        .social-btn:hover { background: var(--primary); border-color: var(--primary); color: white; transform: translateY(-2px); }
+
+        .register-link { text-align: center; font-size: 0.88rem; color: rgba(41,41,41,0.65); }
+        .register-link a { color: var(--dark); font-weight: 700; text-decoration: none; transition: color 0.2s; }
+        .register-link a:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Trainees</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Our Projects</a></li>
+            <li><a href="#">Application</a></li>
+            <li><a href="#" class="active">Login</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-banner">
+        <h2>Welcome Back</h2>
+        <p>Sign in to access your Hot Beans account and continue your journey.</p>
+    </div>
+
+    <div class="page-body">
+        <div class="login-card">
+            <h1>Login</h1>
+            <p class="subtitle">Enter your credentials to continue</p>
+
+            <form action="">
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class="fas fa-user icon"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Password" id="pwField" required>
+                    <i class="fas fa-lock icon"></i>
+                    <i class="fas fa-eye toggle-pw" id="togglePw"></i>
+                </div>
+
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+
+            <div class="divider"><span>or continue with</span></div>
+
+            <div class="social-login">
+                <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const togglePw = document.getElementById('togglePw');
+        const pwField  = document.getElementById('pwField');
+        togglePw.addEventListener('click', () => {
+            const isPw = pwField.type === 'password';
+            pwField.type = isPw ? 'text' : 'password';
+            togglePw.classList.toggle('fa-eye', !isPw);
+            togglePw.classList.toggle('fa-eye-slash', isPw);
+        });
+    </script>
+</body>
+</html>
+      
+      
+
+      
